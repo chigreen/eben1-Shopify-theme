@@ -6,10 +6,13 @@
   <title>EBEN-1 Speed - Theme Preview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     /* ============================================
        EBEN-1 SPEED - Preview Styles
+       ============================================
+       Using Orbitron as fallback for New Detroit
+       (futuristic, geometric display font)
        ============================================ */
 
     :root {
@@ -26,7 +29,8 @@
       --color-border: #1A1A1A;
       --color-glow: rgba(212, 175, 55, 0.15);
 
-      --font-heading: 'Space Grotesk', sans-serif;
+      --font-display: 'Orbitron', sans-serif;  /* New Detroit fallback */
+      --font-heading: 'Orbitron', sans-serif;
       --font-body: 'Inter', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
@@ -89,7 +93,13 @@
       font-family: var(--font-heading);
       font-weight: 500;
       line-height: 1.1;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      letter-spacing: 0.1em;
     }
 
     /* Header */
@@ -114,10 +124,11 @@
     }
 
     .logo {
-      font-family: var(--font-heading);
+      font-family: var(--font-display);
       font-size: 1.25rem;
       font-weight: 500;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       color: var(--color-text);
     }
 
