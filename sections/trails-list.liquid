@@ -1,0 +1,400 @@
+<!-- Trails List Section -->
+<section class="trails-section">
+  <div class="section-container">
+
+    <!-- Region Filter -->
+    <div class="trails-filters">
+      <button class="filter-btn active" data-filter="all">All Regions</button>
+      {% assign regions = "" %}
+      {% for block in section.blocks %}
+        {% unless regions contains block.settings.region %}
+          {% assign regions = regions | append: block.settings.region | append: "," %}
+          <button class="filter-btn" data-filter="{{ block.settings.region | handleize }}">{{ block.settings.region }}</button>
+        {% endunless %}
+      {% endfor %}
+    </div>
+
+    <!-- Trails Grid -->
+    <div class="trails-grid">
+      {% for block in section.blocks %}
+        <article class="trail-card" data-region="{{ block.settings.region | handleize }}">
+          {% if block.settings.image %}
+            <div class="trail-image">
+              <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.name }}" loading="lazy">
+              <span class="trail-difficulty {{ block.settings.difficulty | handleize }}">{{ block.settings.difficulty }}</span>
+            </div>
+          {% else %}
+            <div class="trail-image placeholder">
+              <span class="trail-difficulty {{ block.settings.difficulty | handleize }}">{{ block.settings.difficulty }}</span>
+            </div>
+          {% endif %}
+
+          <div class="trail-info">
+            <span class="trail-region">{{ block.settings.region }}</span>
+            <h3 class="trail-name">{{ block.settings.name }}</h3>
+
+            <div class="trail-stats">
+              {% if block.settings.distance %}
+                <div class="stat">
+                  <span class="stat-label">Distance</span>
+                  <span class="stat-value">{{ block.settings.distance }}</span>
+                </div>
+              {% endif %}
+              {% if block.settings.elevation %}
+                <div class="stat">
+                  <span class="stat-label">Elevation</span>
+                  <span class="stat-value">{{ block.settings.elevation }}</span>
+                </div>
+              {% endif %}
+              {% if block.settings.ss_rating %}
+                <div class="stat">
+                  <span class="stat-label">SS Rating</span>
+                  <span class="stat-value">{{ block.settings.ss_rating }}/5</span>
+                </div>
+              {% endif %}
+            </div>
+
+            {% if block.settings.description %}
+              <p class="trail-description">{{ block.settings.description }}</p>
+            {% endif %}
+
+            <div class="trail-actions">
+              {% if block.settings.trailforks_url %}
+                <a href="{{ block.settings.trailforks_url }}" class="trail-link" target="_blank">Trailforks</a>
+              {% endif %}
+              {% if block.settings.mtb_project_url %}
+                <a href="{{ block.settings.mtb_project_url }}" class="trail-link" target="_blank">MTB Project</a>
+              {% endif %}
+              {% if block.settings.strava_segment %}
+                <a href="{{ block.settings.strava_segment }}" class="trail-link" target="_blank">Strava</a>
+              {% endif %}
+            </div>
+          </div>
+        </article>
+      {% else %}
+        <div class="no-trails">
+          <p>No trails added yet. Add trails in the theme editor.</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Trail Submission -->
+    <div class="submit-trail">
+      <p>Know a trail that's perfect for single speed?</p>
+      <a href="/pages/contact" class="btn btn-secondary">Submit a Trail</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .trails-section {
+    padding: var(--space-lg) 0 var(--space-xl);
+  }
+
+  .trails-filters {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+  }
+
+  .trails-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .trail-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all var(--transition);
+  }
+
+  .trail-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  .trail-card.hidden {
+    display: none;
+  }
+
+  .trail-image {
+    aspect-ratio: 16/9;
+    position: relative;
+    background: var(--color-bg-elevated);
+    overflow: hidden;
+  }
+
+  .trail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition);
+  }
+
+  .trail-card:hover .trail-image img {
+    transform: scale(1.03);
+  }
+
+  .trail-image.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .trail-difficulty {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius);
+    background: var(--color-bg);
+  }
+
+  .trail-difficulty.easy,
+  .trail-difficulty.beginner {
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+  }
+
+  .trail-difficulty.intermediate,
+  .trail-difficulty.moderate {
+    color: #2196F3;
+    border: 1px solid #2196F3;
+  }
+
+  .trail-difficulty.advanced,
+  .trail-difficulty.difficult {
+    color: #FF9800;
+    border: 1px solid #FF9800;
+  }
+
+  .trail-difficulty.expert,
+  .trail-difficulty.extreme {
+    color: #f44336;
+    border: 1px solid #f44336;
+  }
+
+  .trail-info {
+    padding: var(--space-md);
+  }
+
+  .trail-region {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .trail-name {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: var(--space-xs) 0;
+  }
+
+  .trail-stats {
+    display: flex;
+    gap: var(--space-md);
+    margin: var(--space-sm) 0;
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+  }
+
+  .stat-value {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    color: var(--color-text);
+  }
+
+  .trail-description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+  }
+
+  .trail-actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .trail-link {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: all var(--transition);
+  }
+
+  .trail-link:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .no-trails {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .no-trails p {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+  }
+
+  .submit-trail {
+    text-align: center;
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .submit-trail p {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.05em;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.trails-filters .filter-btn');
+    const trailCards = document.querySelectorAll('.trail-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const filter = this.dataset.filter;
+
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        trailCards.forEach(card => {
+          if (filter === 'all' || card.dataset.region === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Trails List",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "trail",
+      "name": "Trail",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Trail Name",
+          "default": "Trail Name"
+        },
+        {
+          "type": "text",
+          "id": "region",
+          "label": "Region",
+          "default": "Southwest"
+        },
+        {
+          "type": "select",
+          "id": "difficulty",
+          "label": "Difficulty",
+          "options": [
+            { "value": "Beginner", "label": "Beginner" },
+            { "value": "Intermediate", "label": "Intermediate" },
+            { "value": "Advanced", "label": "Advanced" },
+            { "value": "Expert", "label": "Expert" }
+          ],
+          "default": "Intermediate"
+        },
+        {
+          "type": "text",
+          "id": "distance",
+          "label": "Distance",
+          "default": "12 mi"
+        },
+        {
+          "type": "text",
+          "id": "elevation",
+          "label": "Elevation Gain",
+          "default": "1,500 ft"
+        },
+        {
+          "type": "range",
+          "id": "ss_rating",
+          "label": "Single Speed Rating",
+          "min": 1,
+          "max": 5,
+          "default": 3,
+          "info": "How good is this trail for single speed?"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Trail Image"
+        },
+        {
+          "type": "url",
+          "id": "trailforks_url",
+          "label": "Trailforks URL"
+        },
+        {
+          "type": "url",
+          "id": "mtb_project_url",
+          "label": "MTB Project URL"
+        },
+        {
+          "type": "url",
+          "id": "strava_segment",
+          "label": "Strava Segment URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

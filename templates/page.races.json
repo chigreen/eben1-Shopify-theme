@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "title": "Race Calendar",
+        "subtitle": "Single speed events, gravel grinds, and endurance races"
+      }
+    },
+    "main": {
+      "type": "races-list",
+      "settings": {}
+    }
+  },
+  "order": ["banner", "main"]
+}

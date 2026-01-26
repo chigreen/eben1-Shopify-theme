@@ -1,0 +1,185 @@
+<!-- Community Hub Section -->
+<section class="community-hub">
+  <div class="section-container">
+    <div class="hub-grid">
+
+      <!-- Race Calendar -->
+      <a href="/pages/races" class="hub-card">
+        <div class="hub-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <h3 class="hub-title">Race Calendar</h3>
+        <p class="hub-description">Single speed events, gravel races, and endurance challenges</p>
+        <span class="hub-link">View Events →</span>
+      </a>
+
+      <!-- Trail Guide -->
+      <a href="/pages/trails" class="hub-card">
+        <div class="hub-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 17l6-6 4 4 8-8"/>
+            <path d="M17 7h4v4"/>
+          </svg>
+        </div>
+        <h3 class="hub-title">Trail Guide</h3>
+        <p class="hub-description">Regional trails tested and rated for single speed riding</p>
+        <span class="hub-link">Explore Trails →</span>
+      </a>
+
+      <!-- Group Rides -->
+      <a href="/pages/rides" class="hub-card">
+        <div class="hub-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 class="hub-title">Group Rides</h3>
+        <p class="hub-description">Weekly community rides and SS meetups</p>
+        <span class="hub-link">Join a Ride →</span>
+      </a>
+
+      <!-- Team / Ambassadors -->
+      <a href="/pages/team" class="hub-card">
+        <div class="hub-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3 class="hub-title">Team EBEN-1</h3>
+        <p class="hub-description">Our ambassadors and sponsored riders</p>
+        <span class="hub-link">Meet the Team →</span>
+      </a>
+
+      <!-- Blog / News -->
+      <a href="/blogs/news" class="hub-card">
+        <div class="hub-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <h3 class="hub-title">Transmissions</h3>
+        <p class="hub-description">News, race reports, and tech talk</p>
+        <span class="hub-link">Read More →</span>
+      </a>
+
+      <!-- Strava Club -->
+      <a href="{{ section.settings.strava_club_url | default: '#' }}" class="hub-card" target="_blank">
+        <div class="hub-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12 2 2 22 12 17 22 22 12 2"/>
+          </svg>
+        </div>
+        <h3 class="hub-title">Strava Club</h3>
+        <p class="hub-description">Join the EBEN-1 Strava club and compare segments</p>
+        <span class="hub-link">Join on Strava →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .community-hub {
+    padding: var(--space-lg) 0;
+  }
+
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .hub-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-lg);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition);
+    position: relative;
+  }
+
+  .hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), transparent);
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+
+  .hub-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .hub-card:hover::before {
+    opacity: 1;
+  }
+
+  .hub-icon {
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hub-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+  }
+
+  .hub-description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hub-link {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-dim);
+    transition: color var(--transition);
+  }
+
+  .hub-card:hover .hub-link {
+    color: var(--color-primary);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Community Hub",
+  "settings": [
+    {
+      "type": "url",
+      "id": "strava_club_url",
+      "label": "Strava Club URL"
+    }
+  ]
+}
+{% endschema %}

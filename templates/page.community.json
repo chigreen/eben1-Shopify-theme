@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "label": "The Crew",
+        "title": "Community",
+        "subtitle": "Races, trails, resources, and fellow single speeders"
+      }
+    },
+    "hub": {
+      "type": "community-hub",
+      "settings": {}
+    },
+    "resources": {
+      "type": "rider-resources",
+      "settings": {}
+    }
+  },
+  "order": ["banner", "hub", "resources"]
+}

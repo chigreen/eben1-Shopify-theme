@@ -1,0 +1,331 @@
+<!-- Races & Events List Section -->
+<section class="races-section">
+  <div class="section-container">
+
+    <!-- Filter Tabs -->
+    <div class="races-filters">
+      <button class="filter-btn active" data-filter="all">All Events</button>
+      <button class="filter-btn" data-filter="single-speed">Single Speed</button>
+      <button class="filter-btn" data-filter="gravel">Gravel</button>
+      <button class="filter-btn" data-filter="endurance">Endurance</button>
+    </div>
+
+    <!-- Events List -->
+    <div class="races-list">
+      {% for block in section.blocks %}
+        <article class="race-card" data-category="{{ block.settings.category }}">
+          <div class="race-date">
+            <span class="race-month">{{ block.settings.date | date: "%b" }}</span>
+            <span class="race-day">{{ block.settings.date | date: "%d" }}</span>
+            <span class="race-year">{{ block.settings.date | date: "%Y" }}</span>
+          </div>
+          <div class="race-info">
+            <span class="race-category">{{ block.settings.category }}</span>
+            <h3 class="race-name">{{ block.settings.name }}</h3>
+            <p class="race-location">{{ block.settings.location }}</p>
+            {% if block.settings.description %}
+              <p class="race-description">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+          <div class="race-actions">
+            {% if block.settings.registration_url %}
+              <a href="{{ block.settings.registration_url }}" class="btn btn-primary" target="_blank">Register</a>
+            {% endif %}
+            {% if block.settings.info_url %}
+              <a href="{{ block.settings.info_url }}" class="btn btn-secondary" target="_blank">Info</a>
+            {% endif %}
+          </div>
+        </article>
+      {% else %}
+        <div class="no-events">
+          <p>No events scheduled. Check back soon or add events in the theme editor.</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Submit Event CTA -->
+    <div class="submit-event">
+      <p>Know of a race we should list?</p>
+      <a href="/pages/contact" class="btn btn-secondary">Submit an Event</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .races-section {
+    padding: var(--space-lg) 0 var(--space-xl);
+  }
+
+  .races-filters {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+  }
+
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.25rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-text-muted);
+    color: var(--color-text);
+  }
+
+  .filter-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-bg);
+  }
+
+  .races-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .race-card {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-bg);
+    align-items: center;
+    transition: background var(--transition);
+  }
+
+  .race-card:hover {
+    background: var(--color-bg-elevated);
+  }
+
+  .race-card.hidden {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .race-card {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .race-date {
+      display: flex;
+      gap: var(--space-xs);
+      justify-content: center;
+    }
+
+    .race-actions {
+      justify-content: center;
+    }
+  }
+
+  .race-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-sm);
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius);
+  }
+
+  .race-month {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .race-day {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1;
+  }
+
+  .race-year {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--color-text-dim);
+  }
+
+  .race-info {
+    flex: 1;
+  }
+
+  .race-category {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: var(--radius);
+    margin-bottom: var(--space-xs);
+  }
+
+  .race-name {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+
+  .race-location {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .race-description {
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+    margin-top: var(--space-xs);
+  }
+
+  .race-actions {
+    display: flex;
+    gap: var(--space-xs);
+  }
+
+  .race-actions .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.625rem;
+  }
+
+  .no-events {
+    padding: var(--space-xl);
+    text-align: center;
+    background: var(--color-bg);
+  }
+
+  .no-events p {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+  }
+
+  .submit-event {
+    text-align: center;
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .submit-event p {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.05em;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const raceCards = document.querySelectorAll('.race-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const filter = this.dataset.filter;
+
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        // Filter cards
+        raceCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category.toLowerCase().includes(filter)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Races List",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "event",
+      "name": "Event",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Event Name",
+          "default": "Race Name"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date (YYYY-MM-DD)",
+          "default": "2026-06-15"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "City, State"
+        },
+        {
+          "type": "select",
+          "id": "category",
+          "label": "Category",
+          "options": [
+            { "value": "Single Speed", "label": "Single Speed" },
+            { "value": "Gravel", "label": "Gravel" },
+            { "value": "Endurance", "label": "Endurance" },
+            { "value": "XC", "label": "Cross Country" },
+            { "value": "Downhill", "label": "Downhill" },
+            { "value": "Community Ride", "label": "Community Ride" }
+          ],
+          "default": "Single Speed"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description (optional)"
+        },
+        {
+          "type": "url",
+          "id": "registration_url",
+          "label": "Registration URL"
+        },
+        {
+          "type": "url",
+          "id": "info_url",
+          "label": "More Info URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

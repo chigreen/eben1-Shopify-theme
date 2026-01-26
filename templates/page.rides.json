@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "label": "Community",
+        "title": "Group Rides",
+        "subtitle": "Weekly meetups and community rides"
+      }
+    },
+    "main": {
+      "type": "group-rides",
+      "settings": {}
+    }
+  },
+  "order": ["banner", "main"]
+}

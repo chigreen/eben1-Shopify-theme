@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "label": "The Crew",
+        "title": "Team EBEN-1",
+        "subtitle": "Ambassadors, racers, and fellow single speeders"
+      }
+    },
+    "main": {
+      "type": "team-grid",
+      "settings": {}
+    }
+  },
+  "order": ["banner", "main"]
+}
