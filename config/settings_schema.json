@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Eben1 MTB Theme",
+    "theme_name": "EBEN-1 Speed Theme",
     "theme_version": "1.0.0",
     "theme_author": "Custom Build",
     "theme_documentation_url": "",
@@ -14,31 +14,34 @@
         "type": "color",
         "id": "color_primary",
         "label": "Primary color",
-        "default": "#FF6B35"
+        "default": "#D4AF37",
+        "info": "Gold accent - otherworldly warmth"
       },
       {
         "type": "color",
         "id": "color_secondary",
         "label": "Secondary color",
-        "default": "#1A1A2E"
+        "default": "#0A0A0A"
       },
       {
         "type": "color",
         "id": "color_background",
         "label": "Background color",
-        "default": "#0F0F0F"
+        "default": "#030303",
+        "info": "Deep void black"
       },
       {
         "type": "color",
         "id": "color_text",
         "label": "Text color",
-        "default": "#FFFFFF"
+        "default": "#E8E8E8"
       },
       {
         "type": "color",
         "id": "color_accent",
         "label": "Accent color",
-        "default": "#00D4AA"
+        "default": "#5A7D8C",
+        "info": "Muted lunar blue"
       }
     ]
   },
@@ -49,7 +52,7 @@
         "type": "font_picker",
         "id": "font_heading",
         "label": "Heading font",
-        "default": "montserrat_n7"
+        "default": "space_grotesk_n5"
       },
       {
         "type": "font_picker",
@@ -66,7 +69,7 @@
         "type": "text",
         "id": "store_tagline",
         "label": "Store tagline",
-        "default": "Premium Mountain Bikes"
+        "default": "One Gear. Zero Compromise."
       },
       {
         "type": "image_picker",

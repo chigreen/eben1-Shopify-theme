@@ -1,7 +1,7 @@
-<!-- Featured Collection Section -->
+<!-- Featured Collection Section - EBEN-1 Speed -->
 <section class="featured-collection">
   <div class="section-container">
-    <h2 class="section-title">{{ section.settings.title | default: 'Featured Bikes' }}</h2>
+    <h2 class="section-title">{{ section.settings.title | default: 'The Lineup' }}</h2>
 
     <div class="product-grid">
       {% assign collection = collections[section.settings.collection] %}
@@ -16,7 +16,7 @@
                   loading="lazy"
                 >
               {% else %}
-                <div class="placeholder-image">No Image</div>
+                <div class="placeholder-image">Coming Soon</div>
               {% endif %}
             </div>
             <div class="product-info">
@@ -32,7 +32,7 @@
 
     {% if section.settings.show_view_all %}
       <div class="section-footer">
-        <a href="{{ collection.url }}" class="btn btn-secondary">View All</a>
+        <a href="{{ collection.url }}" class="btn btn-secondary">View All Builds</a>
       </div>
     {% endif %}
   </div>
@@ -46,7 +46,7 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Featured Bikes"
+      "default": "The Lineup"
     },
     {
       "type": "collection",
@@ -60,7 +60,7 @@
       "min": 2,
       "max": 12,
       "step": 1,
-      "default": 4
+      "default": 3
     },
     {
       "type": "checkbox",

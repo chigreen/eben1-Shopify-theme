@@ -1,4 +1,4 @@
-<!-- Product Specs Section - MTB Specific -->
+<!-- Product Specs Section - Single Speed Specific -->
 <section class="product-specs">
   <div class="section-container">
     <h2>Specifications</h2>
@@ -20,17 +20,38 @@
         </div>
       {% endif %}
 
-      {% if product.metafields.specs.wheel_size %}
+      {% if product.metafields.specs.gear_ratio %}
         <div class="spec-item">
-          <span class="spec-label">Wheel Size</span>
-          <span class="spec-value">{{ product.metafields.specs.wheel_size }}</span>
+          <span class="spec-label">Gear Ratio</span>
+          <span class="spec-value">{{ product.metafields.specs.gear_ratio }}</span>
         </div>
       {% endif %}
 
-      {% if product.metafields.specs.drivetrain %}
+      {% if product.metafields.specs.crankset %}
         <div class="spec-item">
-          <span class="spec-label">Drivetrain</span>
-          <span class="spec-value">{{ product.metafields.specs.drivetrain }}</span>
+          <span class="spec-label">Crankset</span>
+          <span class="spec-value">{{ product.metafields.specs.crankset }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.cog %}
+        <div class="spec-item">
+          <span class="spec-label">Cog</span>
+          <span class="spec-value">{{ product.metafields.specs.cog }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.wheelset %}
+        <div class="spec-item">
+          <span class="spec-label">Wheelset</span>
+          <span class="spec-value">{{ product.metafields.specs.wheelset }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.tires %}
+        <div class="spec-item">
+          <span class="spec-label">Tires</span>
+          <span class="spec-value">{{ product.metafields.specs.tires }}</span>
         </div>
       {% endif %}
 
@@ -41,10 +62,31 @@
         </div>
       {% endif %}
 
-      {% if product.metafields.specs.travel %}
+      {% if product.metafields.specs.handlebar %}
         <div class="spec-item">
-          <span class="spec-label">Travel</span>
-          <span class="spec-value">{{ product.metafields.specs.travel }}</span>
+          <span class="spec-label">Handlebar</span>
+          <span class="spec-value">{{ product.metafields.specs.handlebar }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.stem %}
+        <div class="spec-item">
+          <span class="spec-label">Stem</span>
+          <span class="spec-value">{{ product.metafields.specs.stem }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.seatpost %}
+        <div class="spec-item">
+          <span class="spec-label">Seatpost</span>
+          <span class="spec-value">{{ product.metafields.specs.seatpost }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.saddle %}
+        <div class="spec-item">
+          <span class="spec-label">Saddle</span>
+          <span class="spec-value">{{ product.metafields.specs.saddle }}</span>
         </div>
       {% endif %}
 
@@ -58,7 +100,7 @@
 
     {% comment %} Fallback if no metafields set up yet {% endcomment %}
     {% if product.metafields.specs == blank %}
-      <p class="specs-note">Specifications coming soon. Contact us for details.</p>
+      <p class="specs-note">Full specifications available upon request.</p>
     {% endif %}
 
   </div>

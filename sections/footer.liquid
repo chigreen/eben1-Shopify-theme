@@ -1,4 +1,4 @@
-<!-- Footer Section -->
+<!-- Footer Section - EBEN-1 Speed -->
 <footer class="site-footer">
   <div class="footer-container">
 
@@ -7,13 +7,13 @@
 
       <!-- Brand Column -->
       <div class="footer-brand">
-        <h3 class="footer-logo">{{ shop.name }}</h3>
+        <h3 class="footer-logo">EBEN-1</h3>
         <p class="footer-tagline">{{ settings.store_tagline }}</p>
       </div>
 
       <!-- Quick Links -->
       <div class="footer-links">
-        <h4>Shop</h4>
+        <h4>Builds</h4>
         <ul>
           {% for link in linklists.footer.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
@@ -25,21 +25,21 @@
       <div class="footer-links">
         <h4>Support</h4>
         <ul>
-          <li><a href="/pages/contact">Contact Us</a></li>
-          <li><a href="/pages/shipping">Shipping Info</a></li>
-          <li><a href="/pages/returns">Returns</a></li>
-          <li><a href="/pages/faq">FAQ</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+          <li><a href="/pages/sizing">Sizing Guide</a></li>
+          <li><a href="/pages/shipping">Shipping</a></li>
+          <li><a href="/pages/warranty">Warranty</a></li>
         </ul>
       </div>
 
       <!-- Newsletter -->
       <div class="footer-newsletter">
-        <h4>Stay in the Loop</h4>
-        <p>Get trail updates and new arrivals.</p>
+        <h4>Transmissions</h4>
+        <p>Updates on new builds and restocks.</p>
         {% form 'customer', id: 'footer-newsletter' %}
           <div class="newsletter-form">
-            <input type="email" name="contact[email]" placeholder="Your email" required>
-            <button type="submit">Subscribe</button>
+            <input type="email" name="contact[email]" placeholder="Email" required>
+            <button type="submit">Join</button>
           </div>
         {% endform %}
       </div>
@@ -48,13 +48,16 @@
 
     <!-- Footer Bottom -->
     <div class="footer-bottom">
-      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+      <p>&copy; {{ 'now' | date: '%Y' }} EBEN-1 Speed</p>
       <div class="footer-social">
         {% if section.settings.social_instagram %}
           <a href="{{ section.settings.social_instagram }}" aria-label="Instagram">IG</a>
         {% endif %}
         {% if section.settings.social_youtube %}
           <a href="{{ section.settings.social_youtube }}" aria-label="YouTube">YT</a>
+        {% endif %}
+        {% if section.settings.social_strava %}
+          <a href="{{ section.settings.social_strava }}" aria-label="Strava">STR</a>
         {% endif %}
       </div>
     </div>
@@ -75,6 +78,11 @@
       "type": "url",
       "id": "social_youtube",
       "label": "YouTube URL"
+    },
+    {
+      "type": "url",
+      "id": "social_strava",
+      "label": "Strava URL"
     }
   ]
 }

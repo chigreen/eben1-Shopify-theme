@@ -1,12 +1,12 @@
-<!-- About Preview Section -->
+<!-- About Preview Section - EBEN-1 Speed -->
 <section class="about-preview">
   <div class="section-container">
     <div class="about-grid">
       <div class="about-content">
-        <h2>{{ section.settings.title | default: 'Why Ride With Us' }}</h2>
-        <p>{{ section.settings.description | default: 'We live and breathe mountain biking. Every bike we sell has been tested on real trails by real riders.' }}</p>
+        <h2>{{ section.settings.title | default: 'The Philosophy' }}</h2>
+        <p>{{ section.settings.description | default: 'Single speed is not a limitation. It is a decision. One gear ratio. No derailleurs. No complexity. Just you, the trail, and the purest connection to the ride. Every EBEN-1 is built with full carbon construction and components selected for a reason—not a catalog.' }}</p>
         <a href="{{ section.settings.link | default: '/pages/about' }}" class="btn btn-secondary">
-          {{ section.settings.link_text | default: 'Our Story' }}
+          {{ section.settings.link_text | default: 'Learn More' }}
         </a>
       </div>
       {% if section.settings.image %}
@@ -26,18 +26,19 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Why Ride With Us"
+      "default": "The Philosophy"
     },
     {
       "type": "textarea",
       "id": "description",
-      "label": "Description"
+      "label": "Description",
+      "default": "Single speed is not a limitation. It is a decision. One gear ratio. No derailleurs. No complexity. Just you, the trail, and the purest connection to the ride."
     },
     {
       "type": "text",
       "id": "link_text",
       "label": "Link text",
-      "default": "Our Story"
+      "default": "Learn More"
     },
     {
       "type": "url",
