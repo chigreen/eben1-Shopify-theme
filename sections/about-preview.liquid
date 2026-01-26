@@ -1,0 +1,59 @@
+<!-- About Preview Section -->
+<section class="about-preview">
+  <div class="section-container">
+    <div class="about-grid">
+      <div class="about-content">
+        <h2>{{ section.settings.title | default: 'Why Ride With Us' }}</h2>
+        <p>{{ section.settings.description | default: 'We live and breathe mountain biking. Every bike we sell has been tested on real trails by real riders.' }}</p>
+        <a href="{{ section.settings.link | default: '/pages/about' }}" class="btn btn-secondary">
+          {{ section.settings.link_text | default: 'Our Story' }}
+        </a>
+      </div>
+      {% if section.settings.image %}
+        <div class="about-image">
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="" loading="lazy">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Preview",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Why Ride With Us"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text",
+      "default": "Our Story"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Preview"
+    }
+  ]
+}
+{% endschema %}

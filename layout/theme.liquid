@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ shop.locale }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }} | {{ shop.name }}</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://cdn.shopify.com">
+
+  <!-- Theme CSS -->
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  <!-- Shopify required -->
+  {{ content_for_header }}
+</head>
+<body class="template-{{ template.name }}">
+
+  <!-- Header -->
+  {% section 'header' %}
+
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  <!-- Footer -->
+  {% section 'footer' %}
+
+  <!-- Theme JS -->
+  {{ 'theme.js' | asset_url | script_tag }}
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!-- Footer Section -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Footer Main -->
+    <div class="footer-main">
+
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <h3 class="footer-logo">{{ shop.name }}</h3>
+        <p class="footer-tagline">{{ settings.store_tagline }}</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <ul>
+          {% for link in linklists.footer.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/pages/contact">Contact Us</a></li>
+          <li><a href="/pages/shipping">Shipping Info</a></li>
+          <li><a href="/pages/returns">Returns</a></li>
+          <li><a href="/pages/faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-newsletter">
+        <h4>Stay in the Loop</h4>
+        <p>Get trail updates and new arrivals.</p>
+        {% form 'customer', id: 'footer-newsletter' %}
+          <div class="newsletter-form">
+            <input type="email" name="contact[email]" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </div>
+        {% endform %}
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+      <div class="footer-social">
+        {% if section.settings.social_instagram %}
+          <a href="{{ section.settings.social_instagram }}" aria-label="Instagram">IG</a>
+        {% endif %}
+        {% if section.settings.social_youtube %}
+          <a href="{{ section.settings.social_youtube }}" aria-label="YouTube">YT</a>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "social_youtube",
+      "label": "YouTube URL"
+    }
+  ]
+}
+{% endschema %}

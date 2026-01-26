@@ -1,0 +1,73 @@
+<!-- Collection Grid -->
+<section class="collection-grid-section">
+  <div class="section-container">
+
+    <!-- Filters (optional) -->
+    <div class="collection-filters">
+      <span class="product-count">{{ collection.products_count }} products</span>
+
+      <div class="sort-by">
+        <label for="sort">Sort by:</label>
+        <select id="sort" onchange="window.location.href = this.value">
+          {% for option in collection.sort_options %}
+            <option value="{{ option.url }}" {% if option.value == collection.sort_by %}selected{% endif %}>
+              {{ option.name }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+      {% paginate collection.products by 12 %}
+        {% for product in collection.products %}
+          <article class="product-card">
+            <a href="{{ product.url }}" class="product-link">
+              <div class="product-image">
+                {% if product.featured_image %}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 500 }}"
+                    alt="{{ product.title }}"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <div class="placeholder-image">No Image</div>
+                {% endif %}
+
+                {% if product.compare_at_price > product.price %}
+                  <span class="sale-badge">Sale</span>
+                {% endif %}
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">{{ product.title }}</h3>
+                <p class="product-price">
+                  {{ product.price | money }}
+                  {% if product.compare_at_price > product.price %}
+                    <span class="compare-price">{{ product.compare_at_price | money }}</span>
+                  {% endif %}
+                </p>
+              </div>
+            </a>
+          </article>
+        {% else %}
+          <p class="no-products">No products in this collection.</p>
+        {% endfor %}
+
+        {% if paginate.pages > 1 %}
+          <nav class="pagination">
+            {{ paginate | default_pagination }}
+          </nav>
+        {% endif %}
+      {% endpaginate %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": []
+}
+{% endschema %}

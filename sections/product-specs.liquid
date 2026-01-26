@@ -1,0 +1,72 @@
+<!-- Product Specs Section - MTB Specific -->
+<section class="product-specs">
+  <div class="section-container">
+    <h2>Specifications</h2>
+
+    <div class="specs-grid">
+      {% comment %} These pull from product metafields - set up in Shopify admin {% endcomment %}
+
+      {% if product.metafields.specs.frame %}
+        <div class="spec-item">
+          <span class="spec-label">Frame</span>
+          <span class="spec-value">{{ product.metafields.specs.frame }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.fork %}
+        <div class="spec-item">
+          <span class="spec-label">Fork</span>
+          <span class="spec-value">{{ product.metafields.specs.fork }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.wheel_size %}
+        <div class="spec-item">
+          <span class="spec-label">Wheel Size</span>
+          <span class="spec-value">{{ product.metafields.specs.wheel_size }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.drivetrain %}
+        <div class="spec-item">
+          <span class="spec-label">Drivetrain</span>
+          <span class="spec-value">{{ product.metafields.specs.drivetrain }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.brakes %}
+        <div class="spec-item">
+          <span class="spec-label">Brakes</span>
+          <span class="spec-value">{{ product.metafields.specs.brakes }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.travel %}
+        <div class="spec-item">
+          <span class="spec-label">Travel</span>
+          <span class="spec-value">{{ product.metafields.specs.travel }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.weight %}
+        <div class="spec-item">
+          <span class="spec-label">Weight</span>
+          <span class="spec-value">{{ product.metafields.specs.weight }}</span>
+        </div>
+      {% endif %}
+    </div>
+
+    {% comment %} Fallback if no metafields set up yet {% endcomment %}
+    {% if product.metafields.specs == blank %}
+      <p class="specs-note">Specifications coming soon. Contact us for details.</p>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Specs",
+  "settings": []
+}
+{% endschema %}

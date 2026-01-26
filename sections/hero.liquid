@@ -1,0 +1,58 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">{{ section.settings.title | default: 'Built for the Trail' }}</h1>
+    <p class="hero-subtitle">{{ section.settings.subtitle | default: 'Premium mountain bikes engineered for performance' }}</p>
+    <div class="hero-actions">
+      <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn btn-primary">
+        {{ section.settings.cta_text | default: 'Shop Bikes' }}
+      </a>
+    </div>
+  </div>
+  {% if section.settings.background_image %}
+    <div class="hero-background">
+      <img src="{{ section.settings.background_image | image_url: width: 1920 }}" alt="" loading="eager">
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Built for the Trail"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Premium mountain bikes engineered for performance"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Shop Bikes"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

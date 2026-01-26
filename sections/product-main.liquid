@@ -1,0 +1,73 @@
+<!-- Product Main Section -->
+<section class="product-main">
+  <div class="section-container">
+    <div class="product-layout">
+
+      <!-- Product Gallery -->
+      <div class="product-gallery">
+        {% for image in product.images %}
+          <div class="gallery-image {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+            <img src="{{ image | image_url: width: 800 }}" alt="{{ image.alt | default: product.title }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+          </div>
+        {% endfor %}
+        {% if product.images.size > 1 %}
+          <div class="gallery-thumbnails">
+            {% for image in product.images %}
+              <button class="thumbnail {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+                <img src="{{ image | image_url: width: 100 }}" alt="">
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <h1 class="product-title">{{ product.title }}</h1>
+        <p class="product-price">{{ product.price | money }}</p>
+
+        {% if product.available %}
+          {% form 'product', product %}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+            {% if product.has_only_default_variant == false %}
+              {% for option in product.options_with_values %}
+                <div class="variant-selector">
+                  <label>{{ option.name }}</label>
+                  <select name="options[{{ option.name }}]">
+                    {% for value in option.values %}
+                      <option value="{{ value }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endfor %}
+            {% endif %}
+
+            <div class="quantity-selector">
+              <label>Quantity</label>
+              <input type="number" name="quantity" value="1" min="1">
+            </div>
+
+            <button type="submit" class="btn btn-primary add-to-cart">
+              Add to Cart
+            </button>
+          {% endform %}
+        {% else %}
+          <p class="sold-out">Sold Out</p>
+        {% endif %}
+
+        <div class="product-description">
+          {{ product.description }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Main",
+  "settings": []
+}
+{% endschema %}
