@@ -8,10 +8,18 @@
       "type": "featured-collection",
       "settings": {}
     },
+    "glow-line": {
+      "type": "glow-line",
+      "settings": {}
+    },
     "about-preview": {
       "type": "about-preview",
       "settings": {}
+    },
+    "specs-preview": {
+      "type": "specs-preview",
+      "settings": {}
     }
   },
-  "order": ["hero", "featured-collection", "about-preview"]
+  "order": ["hero", "featured-collection", "glow-line", "about-preview", "specs-preview"]
 }
