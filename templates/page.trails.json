@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "title": "Trail Guide",
+        "subtitle": "Regional trails tested and approved by the EBEN1 Speed crew"
+      }
+    },
+    "main": {
+      "type": "trails-list",
+      "settings": {}
+    }
+  },
+  "order": ["banner", "main"]
+}

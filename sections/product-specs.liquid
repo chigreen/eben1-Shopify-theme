@@ -1,0 +1,114 @@
+<!-- Product Specs Section - Single Speed Specific -->
+<section class="product-specs">
+  <div class="section-container">
+    <h2>Specifications</h2>
+
+    <div class="specs-grid">
+      {% comment %} These pull from product metafields - set up in Shopify admin {% endcomment %}
+
+      {% if product.metafields.specs.frame %}
+        <div class="spec-item">
+          <span class="spec-label">Frame</span>
+          <span class="spec-value">{{ product.metafields.specs.frame }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.fork %}
+        <div class="spec-item">
+          <span class="spec-label">Fork</span>
+          <span class="spec-value">{{ product.metafields.specs.fork }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.gear_ratio %}
+        <div class="spec-item">
+          <span class="spec-label">Gear Ratio</span>
+          <span class="spec-value">{{ product.metafields.specs.gear_ratio }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.crankset %}
+        <div class="spec-item">
+          <span class="spec-label">Crankset</span>
+          <span class="spec-value">{{ product.metafields.specs.crankset }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.cog %}
+        <div class="spec-item">
+          <span class="spec-label">Cog</span>
+          <span class="spec-value">{{ product.metafields.specs.cog }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.wheelset %}
+        <div class="spec-item">
+          <span class="spec-label">Wheelset</span>
+          <span class="spec-value">{{ product.metafields.specs.wheelset }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.tires %}
+        <div class="spec-item">
+          <span class="spec-label">Tires</span>
+          <span class="spec-value">{{ product.metafields.specs.tires }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.brakes %}
+        <div class="spec-item">
+          <span class="spec-label">Brakes</span>
+          <span class="spec-value">{{ product.metafields.specs.brakes }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.handlebar %}
+        <div class="spec-item">
+          <span class="spec-label">Handlebar</span>
+          <span class="spec-value">{{ product.metafields.specs.handlebar }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.stem %}
+        <div class="spec-item">
+          <span class="spec-label">Stem</span>
+          <span class="spec-value">{{ product.metafields.specs.stem }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.seatpost %}
+        <div class="spec-item">
+          <span class="spec-label">Seatpost</span>
+          <span class="spec-value">{{ product.metafields.specs.seatpost }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.saddle %}
+        <div class="spec-item">
+          <span class="spec-label">Saddle</span>
+          <span class="spec-value">{{ product.metafields.specs.saddle }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.specs.weight %}
+        <div class="spec-item">
+          <span class="spec-label">Weight</span>
+          <span class="spec-value">{{ product.metafields.specs.weight }}</span>
+        </div>
+      {% endif %}
+    </div>
+
+    {% comment %} Fallback if no metafields set up yet {% endcomment %}
+    {% if product.metafields.specs == blank %}
+      <p class="specs-note">Full specifications available upon request.</p>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Specs",
+  "settings": []
+}
+{% endschema %}

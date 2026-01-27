@@ -1,0 +1,342 @@
+<!-- Group Rides Section -->
+<section class="group-rides-section">
+  <div class="section-container">
+
+    <!-- Recurring Rides -->
+    <div class="rides-category">
+      <h2 class="category-title">Weekly Rides</h2>
+
+      <div class="rides-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'recurring' %}
+            <div class="ride-card recurring">
+              <div class="ride-day">{{ block.settings.day }}</div>
+              <div class="ride-details">
+                <h3 class="ride-name">{{ block.settings.name }}</h3>
+                <p class="ride-time">{{ block.settings.time }}</p>
+                <p class="ride-location">{{ block.settings.location }}</p>
+                {% if block.settings.description %}
+                  <p class="ride-description">{{ block.settings.description }}</p>
+                {% endif %}
+                <div class="ride-meta">
+                  {% if block.settings.pace %}
+                    <span class="meta-item">{{ block.settings.pace }} pace</span>
+                  {% endif %}
+                  {% if block.settings.distance %}
+                    <span class="meta-item">~{{ block.settings.distance }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Special Events -->
+    <div class="rides-category">
+      <h2 class="category-title">Upcoming Events</h2>
+
+      <div class="rides-list">
+        {% for block in section.blocks %}
+          {% if block.type == 'special' %}
+            <div class="ride-card special">
+              <div class="ride-date-block">
+                <span class="ride-month">{{ block.settings.date | date: "%b" }}</span>
+                <span class="ride-date-num">{{ block.settings.date | date: "%d" }}</span>
+              </div>
+              <div class="ride-details">
+                <h3 class="ride-name">{{ block.settings.name }}</h3>
+                <p class="ride-time">{{ block.settings.time }} • {{ block.settings.location }}</p>
+                {% if block.settings.description %}
+                  <p class="ride-description">{{ block.settings.description }}</p>
+                {% endif %}
+              </div>
+              {% if block.settings.rsvp_url %}
+                <a href="{{ block.settings.rsvp_url }}" class="btn btn-primary" target="_blank">RSVP</a>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Join CTA -->
+    <div class="rides-cta">
+      <h3>Want to lead a ride?</h3>
+      <p>We're always looking for ride leaders in new areas.</p>
+      <a href="/pages/contact" class="btn btn-secondary">Get in Touch</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .group-rides-section {
+    padding: var(--space-lg) 0 var(--space-xl);
+  }
+
+  .rides-category {
+    margin-bottom: var(--space-xl);
+  }
+
+  .category-title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .rides-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .ride-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    transition: all var(--transition);
+  }
+
+  .ride-card:hover {
+    border-color: var(--color-text-dim);
+  }
+
+  .ride-card.special {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: var(--space-md);
+    align-items: center;
+    border: none;
+    border-radius: 0;
+  }
+
+  @media (max-width: 600px) {
+    .ride-card.special {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  .ride-day {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .ride-date-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-sm);
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius);
+  }
+
+  .ride-month {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .ride-date-num {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-text);
+    line-height: 1;
+  }
+
+  .ride-name {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .ride-time {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .ride-location {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .ride-description {
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+    margin-top: var(--space-xs);
+    line-height: 1.5;
+  }
+
+  .ride-meta {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
+
+  .meta-item {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    padding: 4px 8px;
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius);
+  }
+
+  .rides-cta {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .rides-cta h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .rides-cta p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Group Rides",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "recurring",
+      "name": "Weekly Ride",
+      "settings": [
+        {
+          "type": "select",
+          "id": "day",
+          "label": "Day",
+          "options": [
+            { "value": "Monday", "label": "Monday" },
+            { "value": "Tuesday", "label": "Tuesday" },
+            { "value": "Wednesday", "label": "Wednesday" },
+            { "value": "Thursday", "label": "Thursday" },
+            { "value": "Friday", "label": "Friday" },
+            { "value": "Saturday", "label": "Saturday" },
+            { "value": "Sunday", "label": "Sunday" }
+          ],
+          "default": "Saturday"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Ride Name",
+          "default": "Saturday Morning SS"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Time",
+          "default": "7:00 AM"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Meeting Location"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "pace",
+          "label": "Pace",
+          "options": [
+            { "value": "Chill", "label": "Chill" },
+            { "value": "Moderate", "label": "Moderate" },
+            { "value": "Fast", "label": "Fast" },
+            { "value": "Race", "label": "Race" }
+          ],
+          "default": "Moderate"
+        },
+        {
+          "type": "text",
+          "id": "distance",
+          "label": "Approximate Distance",
+          "default": "20 miles"
+        }
+      ]
+    },
+    {
+      "type": "special",
+      "name": "Special Event",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Event Name"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date (YYYY-MM-DD)",
+          "default": "2026-03-15"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Time",
+          "default": "8:00 AM"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "rsvp_url",
+          "label": "RSVP URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

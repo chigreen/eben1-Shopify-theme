@@ -1,0 +1,284 @@
+<!-- Team Grid Section -->
+<section class="team-section">
+  <div class="section-container">
+
+    <div class="team-grid">
+      {% for block in section.blocks %}
+        <div class="team-card">
+          <div class="team-image">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.name }}" loading="lazy">
+            {% else %}
+              <div class="placeholder-avatar">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="team-info">
+            <h3 class="team-name">{{ block.settings.name }}</h3>
+            <span class="team-role">{{ block.settings.role }}</span>
+
+            {% if block.settings.location %}
+              <p class="team-location">{{ block.settings.location }}</p>
+            {% endif %}
+
+            {% if block.settings.bio %}
+              <p class="team-bio">{{ block.settings.bio }}</p>
+            {% endif %}
+
+            {% if block.settings.gear_ratio %}
+              <div class="team-setup">
+                <span class="setup-label">Ratio:</span>
+                <span class="setup-value">{{ block.settings.gear_ratio }}</span>
+              </div>
+            {% endif %}
+
+            <div class="team-social">
+              {% if block.settings.instagram %}
+                <a href="{{ block.settings.instagram }}" target="_blank" aria-label="Instagram">IG</a>
+              {% endif %}
+              {% if block.settings.strava %}
+                <a href="{{ block.settings.strava }}" target="_blank" aria-label="Strava">STR</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="no-team">
+          <p>Team members coming soon. Add team members in the theme editor.</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Join the Team CTA -->
+    <div class="team-cta">
+      <h3>Want to join Team EBEN1 Speed?</h3>
+      <p>We're always looking for dedicated single speeders to represent the brand.</p>
+      <a href="/pages/contact" class="btn btn-primary">Apply</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .team-section {
+    padding: var(--space-lg) 0 var(--space-xl);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .team-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all var(--transition);
+  }
+
+  .team-card:hover {
+    border-color: var(--color-text-dim);
+    transform: translateY(-2px);
+  }
+
+  .team-image {
+    aspect-ratio: 1;
+    background: var(--color-bg-elevated);
+    overflow: hidden;
+  }
+
+  .team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%);
+    transition: all var(--transition);
+  }
+
+  .team-card:hover .team-image img {
+    filter: grayscale(0%);
+  }
+
+  .placeholder-avatar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-dim);
+  }
+
+  .team-info {
+    padding: var(--space-md);
+  }
+
+  .team-name {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  .team-role {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .team-location {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-text-dim);
+    margin-top: var(--space-xs);
+    letter-spacing: 0.05em;
+  }
+
+  .team-bio {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-sm);
+    line-height: 1.6;
+  }
+
+  .team-setup {
+    display: flex;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .setup-label {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+  }
+
+  .setup-value {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .team-social {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
+
+  .team-social a {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-dim);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .team-social a:hover {
+    color: var(--color-primary);
+  }
+
+  .no-team {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .no-team p {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+  }
+
+  .team-cta {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .team-cta h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .team-cta p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Team Grid",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Rider Name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role",
+          "default": "Ambassador"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location"
+        },
+        {
+          "type": "textarea",
+          "id": "bio",
+          "label": "Bio"
+        },
+        {
+          "type": "text",
+          "id": "gear_ratio",
+          "label": "Gear Ratio",
+          "default": "32/18"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "url",
+          "id": "instagram",
+          "label": "Instagram URL"
+        },
+        {
+          "type": "url",
+          "id": "strava",
+          "label": "Strava URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

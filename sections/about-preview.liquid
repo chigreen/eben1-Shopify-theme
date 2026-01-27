@@ -1,0 +1,60 @@
+<!-- About Preview Section - EBEN1 Speed Speed -->
+<section class="about-preview">
+  <div class="section-container">
+    <div class="about-grid">
+      <div class="about-content">
+        <h2>{{ section.settings.title | default: 'The Philosophy' }}</h2>
+        <p>{{ section.settings.description | default: 'Single speed is not a limitation. It is a decision. One gear ratio. No derailleurs. No complexity. Just you, the trail, and the purest connection to the ride. Every EBEN1 Speed is built with full carbon construction and components selected for a reason—not a catalog.' }}</p>
+        <a href="{{ section.settings.link | default: '/pages/about' }}" class="btn btn-secondary">
+          {{ section.settings.link_text | default: 'Learn More' }}
+        </a>
+      </div>
+      {% if section.settings.image %}
+        <div class="about-image">
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="" loading="lazy">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Preview",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The Philosophy"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Single speed is not a limitation. It is a decision. One gear ratio. No derailleurs. No complexity. Just you, the trail, and the purest connection to the ride."
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Preview"
+    }
+  ]
+}
+{% endschema %}

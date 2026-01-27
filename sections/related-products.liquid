@@ -1,0 +1,43 @@
+<!-- Related Products Section -->
+<section class="related-products">
+  <div class="section-container">
+    <h2>{{ section.settings.title | default: 'You May Also Like' }}</h2>
+
+    <div class="product-grid">
+      {% assign related = product.collections.first.products | where_exp: "p", "p.id != product.id" %}
+      {% for related_product in related limit: 4 %}
+        <article class="product-card">
+          <a href="{{ related_product.url }}" class="product-link">
+            <div class="product-image">
+              {% if related_product.featured_image %}
+                <img
+                  src="{{ related_product.featured_image | image_url: width: 400 }}"
+                  alt="{{ related_product.title }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">{{ related_product.title }}</h3>
+              <p class="product-price">{{ related_product.price | money }}</p>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Related Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "You May Also Like"
+    }
+  ]
+}
+{% endschema %}
