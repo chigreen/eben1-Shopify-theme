@@ -45,6 +45,8 @@ eben1-Shopify-theme/
 │   ├── collection-banner.liquid
 │   ├── cart-main.liquid
 │   ├── about-preview.liquid
+│   ├── glow-line.liquid       # Decorative sage gradient divider
+│   ├── specs-preview.liquid   # Homepage specs grid
 │   ├── password-main.liquid   # Coming soon section
 │   ├── page-banner.liquid     # Reusable page headers
 │   ├── races-list.liquid      # Event listings
@@ -54,7 +56,7 @@ eben1-Shopify-theme/
 │   ├── team-grid.liquid       # Team profiles
 │   └── rider-resources.liquid # Guides/tools
 ├── assets/
-│   ├── theme.css              # Main stylesheet (~1200 lines)
+│   ├── theme.css              # Main stylesheet (~1350 lines)
 │   └── theme.js               # Vanilla JS interactions
 ├── config/
 │   ├── settings_schema.json   # Theme settings
