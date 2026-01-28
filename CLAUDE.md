@@ -83,11 +83,11 @@ eben1-Shopify-theme/
   --color-accent: #C8D4CA;        /* Pale mint */
   --color-border: #2F3D33;
 
-  /* Typography - New Detroit Everywhere */
+  /* Typography */
   --font-display: 'New Detroit', 'Orbitron', sans-serif;
   --font-heading: 'New Detroit', 'Orbitron', sans-serif;
-  --font-body: 'New Detroit', 'Inter', sans-serif;
-  --font-mono: 'New Detroit', 'JetBrains Mono', monospace;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   /* Spacing */
   --space-xs: 0.5rem;

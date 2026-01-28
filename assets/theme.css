@@ -35,13 +35,13 @@
   /* Pale mint */
   --color-border: #2F3D33;
 
-  /* Typography - New Detroit Everywhere */
+  /* Typography - New Detroit for Display/Headings only */
   --font-display: 'New Detroit', 'Orbitron', sans-serif;
   /* Hero, logo, big text */
   --font-heading: 'New Detroit', 'Orbitron', sans-serif;
   /* Section titles */
-  --font-body: 'New Detroit', 'Inter', sans-serif;
-  --font-mono: 'New Detroit', 'JetBrains Mono', monospace;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
   /* Keep mono for data */
 
   /* Spacing */
