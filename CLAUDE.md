@@ -57,7 +57,9 @@ eben1-Shopify-theme/
 │   └── rider-resources.liquid # Guides/tools
 ├── assets/
 │   ├── theme.css              # Main stylesheet (~1350 lines)
-│   └── theme.js               # Vanilla JS interactions
+│   ├── theme.js               # Vanilla JS interactions
+│   ├── new-detroit.ttf        # Custom brand font
+│   └── [images]               # hero-1, hero-2, build-apex, product placeholders
 ├── config/
 │   ├── settings_schema.json   # Theme settings
 │   └── settings_data.json     # Current values
@@ -81,10 +83,10 @@ eben1-Shopify-theme/
   --color-accent: #C8D4CA;        /* Pale mint */
   --color-border: #2F3D33;
 
-  /* Typography */
+  /* Typography - New Detroit Everywhere */
   --font-display: 'New Detroit', 'Orbitron', sans-serif;
-  --font-heading: 'Orbitron', 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-heading: 'New Detroit', 'Orbitron', sans-serif;
+  --font-body: 'New Detroit', 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Spacing */
@@ -105,8 +107,9 @@ eben1-Shopify-theme/
 - **Shopify 2.0**: JSON templates with section architecture
 - **Liquid**: Shopify templating language
 - **No build process**: Pure CSS/JS, no bundler needed
-- **Custom font**: New Detroit (needs woff2 conversion from TTF)
+- **Custom font**: New Detroit (TTF loaded via CSS)
 - **Fallback font**: Orbitron (Google Fonts)
+- **Design Branch**: `design-changes` contains experimental parallax/scanline effects
 
 ## Community Pages
 
