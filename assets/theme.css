@@ -9,8 +9,7 @@
 /* Add new-detroit.woff2 to assets folder after converting from TTF */
 @font-face {
   font-family: 'New Detroit';
-  src: url('new-detroit.woff2') format('woff2'),
-       url('new-detroit.woff') format('woff');
+  src: url('./new-detroit.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -19,24 +18,31 @@
 /* ----- CSS Variables ----- */
 :root {
   /* Colors - Forest depths with sage accent */
-  --color-primary: #8FA89A;       /* Sage green */
-  --color-primary-dim: #6B7D6E;   /* Muted sage for hover */
-  --color-secondary: #1A2420;
-  --color-bg: #0D1210;            /* Deep forest */
-  --color-bg-elevated: #1A2420;   /* Slightly lifted surfaces */
-  --color-bg-card: #141C18;       /* Card backgrounds */
-  --color-text: #F0F4F1;
-  --color-text-muted: #9AAD9E;
-  --color-text-dim: #6B7D6E;
-  --color-accent: #C8D4CA;        /* Pale mint */
+  --color-primary: #8FA89A;
+  /* Sage green */
+  --color-primary-dim: #6B7D6E;
+  /* Muted sage for hover */
+  --color-bg: #0D1210;
+  /* Deep forest */
+  --color-bg-elevated: #1A2420;
+  /* Slightly lifted surfaces */
+  --color-bg-card: #141C18;
+  /* Card backgrounds */
+  --color-text: #D4DDD5;
+  --color-text-muted: #5A6B5C;
+  --color-text-dim: #3D4D42;
+  --color-accent: #C8D4CA;
+  /* Pale mint */
   --color-border: #2F3D33;
-  --color-glow: rgba(143, 168, 154, 0.2);
 
-  /* Typography - New Detroit for display, Orbitron fallback */
-  --font-display: 'New Detroit', 'Orbitron', sans-serif;  /* Hero, logo, big text */
-  --font-heading: 'Orbitron', 'Space Grotesk', sans-serif; /* Section titles */
-  --font-body: 'Inter', -apple-system, sans-serif;
+  /* Typography - New Detroit Everywhere */
+  --font-display: 'New Detroit', 'Orbitron', sans-serif;
+  /* Hero, logo, big text */
+  --font-heading: 'New Detroit', 'Orbitron', sans-serif;
+  /* Section titles */
+  --font-body: 'New Detroit', 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  /* Keep mono for data */
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -46,15 +52,18 @@
   --space-xl: 8rem;
 
   /* Design tokens */
-  --radius: 2px;                  /* Sharp, monolithic */
+  --radius: 2px;
   --radius-lg: 4px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Sharp, monolithic */
 }
 
 
 /* ----- Reset & Base ----- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -85,12 +94,12 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background-image:
-    radial-gradient(1px 1px at 20% 30%, rgba(143,168,154,0.15) 0%, transparent 100%),
-    radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.05) 0%, transparent 100%),
-    radial-gradient(1px 1px at 50% 10%, rgba(143,168,154,0.1) 0%, transparent 100%),
-    radial-gradient(1px 1px at 60% 50%, rgba(255,255,255,0.05) 0%, transparent 100%),
-    radial-gradient(1px 1px at 80% 90%, rgba(143,168,154,0.12) 0%, transparent 100%),
-    radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.06) 0%, transparent 100%);
+    radial-gradient(1px 1px at 20% 30%, rgba(143, 168, 154, 0.15) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 10%, rgba(143, 168, 154, 0.1) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 90%, rgba(143, 168, 154, 0.12) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
   background-size: 100% 100%;
 }
 
@@ -113,7 +122,9 @@ button {
   background: none;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   font-family: inherit;
   font-size: 1rem;
 }
@@ -125,7 +136,12 @@ input, select, textarea {
 
 
 /* ----- Typography ----- */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 500;
   line-height: 1.1;
@@ -197,7 +213,7 @@ h3 {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -323,7 +339,9 @@ h3 {
 }
 
 @media (max-width: 768px) {
-  .header-nav { display: none; }
+  .header-nav {
+    display: none;
+  }
 
   .mobile-menu-toggle {
     display: block;
@@ -349,8 +367,13 @@ h3 {
     left: 0;
   }
 
-  .hamburger::before { top: -6px; }
-  .hamburger::after { top: 6px; }
+  .hamburger::before {
+    top: -6px;
+  }
+
+  .hamburger::after {
+    top: 6px;
+  }
 }
 
 
@@ -428,8 +451,14 @@ h3 {
 }
 
 @media (max-width: 768px) {
-  .hero-section { min-height: 90vh; }
-  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-section {
+    min-height: 90vh;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 
@@ -466,7 +495,7 @@ h3 {
 .product-card:hover {
   border-color: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .product-card:hover::before {
@@ -560,7 +589,9 @@ h3 {
 }
 
 @media (max-width: 900px) {
-  .product-layout { grid-template-columns: 1fr; }
+  .product-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 .product-gallery {
@@ -835,7 +866,9 @@ h3 {
   }
 
   .cart-item-quantity,
-  .cart-item-total { grid-column: 2; }
+  .cart-item-total {
+    grid-column: 2;
+  }
 }
 
 .cart-item-image {
@@ -956,7 +989,9 @@ h3 {
 }
 
 @media (max-width: 768px) {
-  .about-grid { grid-template-columns: 1fr; }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .about-content h2 {
@@ -1002,14 +1037,18 @@ h3 {
 }
 
 @media (max-width: 900px) {
-  .footer-main { grid-template-columns: 1fr 1fr; }
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 600px) {
-  .footer-main { grid-template-columns: 1fr; }
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
 }
 
-.footer-brand {}
+
 
 .footer-logo {
   font-family: var(--font-heading);
@@ -1258,18 +1297,18 @@ h3 {
   height: 1px;
   background: transparent;
   box-shadow:
-    50vw 10vh rgba(255,255,255,0.4),
-    15vw 25vh rgba(255,255,255,0.3),
-    80vw 15vh rgba(255,255,255,0.35),
-    25vw 45vh rgba(255,255,255,0.3),
-    60vw 35vh rgba(255,255,255,0.4),
-    90vw 55vh rgba(255,255,255,0.3),
-    10vw 65vh rgba(255,255,255,0.35),
-    45vw 75vh rgba(255,255,255,0.3),
-    75vw 85vh rgba(255,255,255,0.4),
-    35vw 95vh rgba(255,255,255,0.3),
-    5vw 40vh rgba(255,255,255,0.35),
-    95vw 30vh rgba(255,255,255,0.3);
+    50vw 10vh rgba(255, 255, 255, 0.4),
+    15vw 25vh rgba(255, 255, 255, 0.3),
+    80vw 15vh rgba(255, 255, 255, 0.35),
+    25vw 45vh rgba(255, 255, 255, 0.3),
+    60vw 35vh rgba(255, 255, 255, 0.4),
+    90vw 55vh rgba(255, 255, 255, 0.3),
+    10vw 65vh rgba(255, 255, 255, 0.35),
+    45vw 75vh rgba(255, 255, 255, 0.3),
+    75vw 85vh rgba(255, 255, 255, 0.4),
+    35vw 95vh rgba(255, 255, 255, 0.3),
+    5vw 40vh rgba(255, 255, 255, 0.35),
+    95vw 30vh rgba(255, 255, 255, 0.3);
   animation: drift-slow 200s linear infinite;
 }
 
@@ -1281,14 +1320,14 @@ h3 {
   background: transparent;
   border-radius: 50%;
   box-shadow:
-    20vw 20vh 1px rgba(255,255,255,0.7),
-    70vw 30vh 1px rgba(255,255,255,0.6),
-    40vw 60vh 1px rgba(255,255,255,0.7),
-    85vw 70vh 1px rgba(255,255,255,0.6),
-    15vw 80vh 1px rgba(255,255,255,0.7),
-    55vw 45vh 1px rgba(255,255,255,0.6),
-    30vw 15vh 1px rgba(143,168,154,0.7),
-    65vw 90vh 1px rgba(143,168,154,0.6);
+    20vw 20vh 1px rgba(255, 255, 255, 0.7),
+    70vw 30vh 1px rgba(255, 255, 255, 0.6),
+    40vw 60vh 1px rgba(255, 255, 255, 0.7),
+    85vw 70vh 1px rgba(255, 255, 255, 0.6),
+    15vw 80vh 1px rgba(255, 255, 255, 0.7),
+    55vw 45vh 1px rgba(255, 255, 255, 0.6),
+    30vw 15vh 1px rgba(143, 168, 154, 0.7),
+    65vw 90vh 1px rgba(143, 168, 154, 0.6);
   animation: drift-medium 150s linear infinite;
 }
 
@@ -1300,11 +1339,11 @@ h3 {
   background: transparent;
   border-radius: 50%;
   box-shadow:
-    25vw 35vh 2px 1px rgba(255,255,255,0.9),
-    75vw 50vh 2px 1px rgba(255,255,255,0.85),
-    50vw 80vh 2px 1px rgba(255,255,255,0.9),
-    10vw 55vh 2px 1px rgba(143,168,154,0.9),
-    88vw 25vh 2px 1px rgba(143,168,154,0.85);
+    25vw 35vh 2px 1px rgba(255, 255, 255, 0.9),
+    75vw 50vh 2px 1px rgba(255, 255, 255, 0.85),
+    50vw 80vh 2px 1px rgba(255, 255, 255, 0.9),
+    10vw 55vh 2px 1px rgba(143, 168, 154, 0.9),
+    88vw 25vh 2px 1px rgba(143, 168, 154, 0.85);
   animation: drift-fast 100s linear infinite;
 }
 
@@ -1316,9 +1355,9 @@ h3 {
   background: transparent;
   border-radius: 50%;
   box-shadow:
-    35vw 25vh 3px 1px rgba(255,255,255,1),
-    65vw 65vh 3px 1px rgba(255,255,255,0.95),
-    80vw 40vh 2px 1px rgba(143,168,154,1);
+    35vw 25vh 3px 1px rgba(255, 255, 255, 1),
+    65vw 65vh 3px 1px rgba(255, 255, 255, 0.95),
+    80vw 40vh 2px 1px rgba(143, 168, 154, 1);
   animation: twinkle 4s ease-in-out infinite;
 }
 
@@ -1329,27 +1368,49 @@ h3 {
   background: transparent;
   border-radius: 50%;
   box-shadow:
-    45vw 50vh 2px 1px rgba(255,255,255,0.9),
-    20vw 70vh 2px 1px rgba(255,255,255,0.85);
+    45vw 50vh 2px 1px rgba(255, 255, 255, 0.9),
+    20vw 70vh 2px 1px rgba(255, 255, 255, 0.85);
   animation: twinkle 5s ease-in-out infinite 2s;
 }
 
 @keyframes drift-slow {
-  0% { transform: translateY(0) translateX(0); }
-  100% { transform: translateY(-30px) translateX(10px); }
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+
+  100% {
+    transform: translateY(-30px) translateX(10px);
+  }
 }
 
 @keyframes drift-medium {
-  0% { transform: translateY(0) translateX(0); }
-  100% { transform: translateY(-20px) translateX(-15px); }
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+
+  100% {
+    transform: translateY(-20px) translateX(-15px);
+  }
 }
 
 @keyframes drift-fast {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-15px); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-15px);
+  }
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
 }
