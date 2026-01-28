@@ -12,7 +12,7 @@ Custom Shopify 2.0 theme for **EBEN1 Speed**, a high-end single speed mountain b
 ### Design Aesthetic
 - Deep forest black background (#0D1210)
 - Sage green accent (#8FA89A)
-- Subtle CSS star field effect
+- Animated CSS "Starmap" background (depth/parallax)
 - Monolithic, sharp design (2px border radius)
 - Premium, minimal typography
 
