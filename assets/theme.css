@@ -11,30 +11,29 @@
   font-family: 'New Detroit';
   src: url('new-detroit.woff2') format('woff2'),
        url('new-detroit.woff') format('woff');
+  src: url('./new-detroit.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-/* ----- CSS Variables ----- */
 :root {
   /* Colors - Forest depths with sage accent */
   --color-primary: #8FA89A;       /* Sage green */
   --color-primary-dim: #6B7D6E;   /* Muted sage for hover */
-  --color-secondary: #1A2420;
   --color-bg: #0D1210;            /* Deep forest */
-  --color-bg-elevated: #1A2420;   /* Slightly lifted surfaces */
-  --color-bg-card: #141C18;       /* Card backgrounds */
-  --color-text: #F0F4F1;
-  --color-text-muted: #9AAD9E;
-  --color-text-dim: #6B7D6E;
+  --color-bg-elevated: #1A2420;
+  --color-bg-card: rgba(20, 28, 24, 0.6); /* More transparent */
+  --color-text: #D4DDD5;
+  --color-text-muted: #5A6B5C;
+  --color-text-dim: #3D4D42;
   --color-accent: #C8D4CA;        /* Pale mint */
-  --color-border: #2F3D33;
-  --color-glow: rgba(143, 168, 154, 0.2);
+  --color-border: rgba(47, 61, 51, 0.5); /* Subtle border */
+  --color-glow: rgba(143, 168, 154, 0.15);
 
-  /* Typography - New Detroit for display, Orbitron fallback */
-  --font-display: 'New Detroit', 'Orbitron', sans-serif;  /* Hero, logo, big text */
-  --font-heading: 'Orbitron', 'Space Grotesk', sans-serif; /* Section titles */
+  /* Typography */
+  --font-display: 'New Detroit', 'Orbitron', sans-serif;
+  --font-heading: 'Orbitron', 'Space Grotesk', sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -43,10 +42,10 @@
   --space-sm: 1rem;
   --space-md: 2rem;
   --space-lg: 4rem;
-  --space-xl: 8rem;
+  --space-xl: 10rem; /* Increased for premium feel */
 
   /* Design tokens */
-  --radius: 2px;                  /* Sharp, monolithic */
+  --radius: 2px;
   --radius-lg: 4px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EBEN1 Speed - Theme Preview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <style>
     /* ============================================
        EBEN1 SPEED - Preview Styles
        ============================================
-       Using Orbitron as fallback for New Detroit
-       (futuristic, geometric display font)
+       Design: High-end MTB, Sci-fi Minimalist
        ============================================ */
+
+    @font-face {
+      font-family: 'New Detroit';
+      src: url('assets/new-detroit.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
 
     :root {
       --color-primary: #8FA89A;
@@ -21,16 +31,16 @@
       --color-secondary: #1A2420;
       --color-bg: #0D1210;
       --color-bg-elevated: #1A2420;
-      --color-bg-card: #141C18;
-      --color-text: #F0F4F1;
-      --color-text-muted: #9AAD9E;
-      --color-text-dim: #6B7D6E;
+      --color-bg-card: rgba(20, 28, 24, 0.6);
+      --color-text: #D4DDD5;
+      --color-text-muted: #5A6B5C;
+      --color-text-dim: #3D4D42;
       --color-accent: #C8D4CA;
-      --color-border: #2F3D33;
-      --color-glow: rgba(143, 168, 154, 0.2);
+      --color-border: rgba(47, 61, 51, 0.5);
+      --color-glow: rgba(143, 168, 154, 0.15);
 
-      --font-display: 'Orbitron', sans-serif;  /* New Detroit fallback */
-      --font-heading: 'Orbitron', sans-serif;
+      --font-display: 'New Detroit', 'Orbitron', sans-serif;
+      --font-heading: 'Orbitron', 'Space Grotesk', sans-serif;
       --font-body: 'Inter', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
@@ -38,13 +48,15 @@
       --space-sm: 1rem;
       --space-md: 2rem;
       --space-lg: 4rem;
-      --space-xl: 8rem;
+      --space-xl: 10rem;
 
       --radius: 2px;
       --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -75,27 +87,27 @@
       z-index: -1;
       background-image:
         /* Bright stars */
-        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(2px 2px at 40% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
-        radial-gradient(2px 2px at 50% 10%, rgba(255,255,255,0.45) 0%, transparent 100%),
-        radial-gradient(2px 2px at 80% 90%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(2px 2px at 90% 20%, rgba(255,255,255,0.35) 0%, transparent 100%),
+        radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+        radial-gradient(2px 2px at 40% 70%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        radial-gradient(2px 2px at 50% 10%, rgba(255, 255, 255, 0.45) 0%, transparent 100%),
+        radial-gradient(2px 2px at 80% 90%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+        radial-gradient(2px 2px at 90% 20%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
         /* Medium stars */
-        radial-gradient(1.5px 1.5px at 10% 50%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 60% 50%, rgba(255,255,255,0.25) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 75% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 15% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 95% 60%, rgba(255,255,255,0.25) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 10% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 60% 50%, rgba(255, 255, 255, 0.25) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 75% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 15% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 95% 60%, rgba(255, 255, 255, 0.25) 0%, transparent 100%),
         /* Dim stars */
-        radial-gradient(1px 1px at 25% 15%, rgba(255,255,255,0.2) 0%, transparent 100%),
-        radial-gradient(1px 1px at 45% 85%, rgba(255,255,255,0.15) 0%, transparent 100%),
-        radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,0.2) 0%, transparent 100%),
-        radial-gradient(1px 1px at 85% 55%, rgba(255,255,255,0.15) 0%, transparent 100%),
-        radial-gradient(1px 1px at 5% 95%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 15%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 85%, rgba(255, 255, 255, 0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 25%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 55%, rgba(255, 255, 255, 0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 5% 95%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
         /* Sage accent stars */
-        radial-gradient(2px 2px at 35% 45%, rgba(143,168,154,0.5) 0%, transparent 100%),
-        radial-gradient(2px 2px at 65% 75%, rgba(143,168,154,0.4) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 88% 12%, rgba(143,168,154,0.35) 0%, transparent 100%);
+        radial-gradient(2px 2px at 35% 45%, rgba(143, 168, 154, 0.5) 0%, transparent 100%),
+        radial-gradient(2px 2px at 65% 75%, rgba(143, 168, 154, 0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 88% 12%, rgba(143, 168, 154, 0.35) 0%, transparent 100%);
     }
 
     ::selection {
@@ -103,7 +115,9 @@
       color: var(--color-bg);
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       font-family: var(--font-heading);
       font-weight: 500;
       line-height: 1.1;
@@ -178,30 +192,76 @@
       text-align: center;
       padding: 120px var(--space-md) var(--space-xl);
       position: relative;
+      background-image: url('assets/hero-1.png');
+      background-size: cover;
+      background-position: center 30%;
+      /* Lower focus to show rider head */
+      background-attachment: fixed;
+      /* Parallax feel */
+      background-blend-mode: overlay;
+      background-color: rgba(13, 18, 16, 0.4);
+      /* Lighter overlay for more impact */
+      overflow: hidden;
+    }
+
+    /* Scanline/Grid Overlay for Sci-Fi feel */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(rgba(13, 18, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 4px, 6px 100%;
+      pointer-events: none;
+      z-index: 1;
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 1200px;
+      z-index: 2;
+      position: relative;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: heroFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.5s;
+    }
+
+    @keyframes heroFadeUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
+      font-size: clamp(4rem, 12vw, 10rem);
+      /* Massive, cinematic text */
       font-weight: 400;
-      margin-bottom: var(--space-sm);
+      line-height: 0.9;
+      margin-bottom: var(--space-md);
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      mix-blend-mode: overlay;
+      /* Blends text with image for "integrated" look */
+      color: #fff;
     }
 
     .hero-subtitle {
       font-family: var(--font-mono);
-      font-size: 0.875rem;
-      letter-spacing: 0.2em;
+      font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+      letter-spacing: 0.5em;
+      /* Extreme tracking */
       text-transform: uppercase;
-      color: var(--color-text-muted);
-      margin-bottom: var(--space-lg);
+      color: var(--color-text);
+      margin-bottom: var(--space-xl);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
     }
 
     .hero-actions {
       display: flex;
-      gap: var(--space-sm);
+      gap: var(--space-md);
       justify-content: center;
     }
 
@@ -291,7 +351,7 @@
     .product-card:hover {
       border-color: var(--color-primary);
       transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
     .product-card:hover::before {
@@ -308,6 +368,18 @@
       font-family: var(--font-mono);
       font-size: 0.75rem;
       letter-spacing: 0.1em;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition);
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
     }
 
     .product-info {
@@ -578,6 +650,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Header -->
@@ -610,21 +683,27 @@
     <h2 class="section-title">The Lineup</h2>
     <div class="product-grid">
       <a href="#" class="product-card">
-        <div class="product-image">BIKE IMAGE</div>
+        <div class="product-image">
+          <img src="assets/build-apex.png" alt="EBEN1 Speed Apex">
+        </div>
         <div class="product-info">
           <h3 class="product-title">EBEN1 Speed Apex</h3>
           <p class="product-price">$4,200.00</p>
         </div>
       </a>
       <a href="#" class="product-card">
-        <div class="product-image">BIKE IMAGE</div>
+        <div class="product-image">
+          <img src="assets/product-frame.png" alt="EBEN1 Speed Zenith Frame">
+        </div>
         <div class="product-info">
           <h3 class="product-title">EBEN1 Speed Zenith</h3>
           <p class="product-price">$5,800.00</p>
         </div>
       </a>
       <a href="#" class="product-card">
-        <div class="product-image">BIKE IMAGE</div>
+        <div class="product-image">
+          <img src="assets/product-wheels.png" alt="EBEN1 Speed Void Wheels">
+        </div>
         <div class="product-info">
           <h3 class="product-title">EBEN1 Speed Void</h3>
           <p class="product-price">$7,400.00</p>
@@ -640,11 +719,16 @@
     <div class="about-grid">
       <div>
         <h2>The Philosophy</h2>
-        <p>Single speed is not a limitation. It is a decision. One gear ratio. No derailleurs. No complexity. Just you, the trail, and the purest connection to the ride.</p>
-        <p>Every EBEN1 Speed is built with full carbon construction and components selected for a reason—not a catalog.</p>
+        <p>Single speed is not a limitation. It is a decision. One gear ratio. No derailleurs. No complexity. Just you,
+          the trail, and the purest connection to the ride.</p>
+        <p>Every EBEN1 Speed is built with full carbon construction and components selected for a reason—not a catalog.
+        </p>
         <a href="#" class="btn btn-secondary">Learn More</a>
       </div>
-      <div class="about-image">LIFESTYLE IMAGE</div>
+      <div class="about-image">
+        <img src="assets/hero-2.png" alt="Engineering Philosophy"
+          style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+      </div>
     </div>
   </section>
 
@@ -707,7 +791,8 @@
         <div>
           <div class="footer-links">
             <h4>Transmissions</h4>
-            <p style="font-size: 0.875rem; color: var(--color-text-dim); margin-bottom: 0;">Updates on new builds and restocks.</p>
+            <p style="font-size: 0.875rem; color: var(--color-text-dim); margin-bottom: 0;">Updates on new builds and
+              restocks.</p>
           </div>
           <div class="newsletter-form">
             <input type="email" placeholder="Email">
@@ -727,4 +812,5 @@
   </footer>
 
 </body>
+
 </html>
