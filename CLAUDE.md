@@ -87,7 +87,7 @@ eben1-Shopify-theme/
   --font-display: 'New Detroit', 'Orbitron', sans-serif;
   --font-heading: 'New Detroit', 'Orbitron', sans-serif;
   --font-body: 'New Detroit', 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: 'New Detroit', 'JetBrains Mono', monospace;
 
   /* Spacing */
   --space-xs: 0.5rem;
