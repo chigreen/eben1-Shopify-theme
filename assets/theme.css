@@ -1471,3 +1471,66 @@ h3 {
     opacity: 0.3;
   }
 }
+
+/* ============================================
+   A.I./SCI-FI MOTION UTILITIES
+   ============================================ */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* Cinematic scale effect for images */
+.scale-on-scroll {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.scale-on-scroll.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Custom Cursor - Sci-fi Precision */
+body {
+  cursor: crosshair;
+  /* Fallback */
+}
+
+a,
+button,
+.btn {
+  cursor: alias !important;
+  /* Precision select feel */
+}
+
+.glass-panel {
+  background: rgba(13, 18, 16, 0.6) !important;
+  /* Darker base */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(143, 168, 154, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: var(--radius);
+}
