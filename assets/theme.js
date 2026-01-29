@@ -5,7 +5,7 @@
    Edit this file directly.
    ============================================ */
 
-(function() {
+(function () {
   'use strict';
 
   /* ----- DOM Ready ----- */
@@ -13,7 +13,7 @@
 
   function init() {
     initMobileMenu();
-    initMobileMenu();
+
     initProductGallery();
     initQuantityInputs();
     initScrollAnimations();
@@ -48,7 +48,7 @@
 
     if (!toggle || !nav) return;
 
-    toggle.addEventListener('click', function() {
+    toggle.addEventListener('click', function () {
       nav.classList.toggle('open');
       toggle.classList.toggle('active');
     });
@@ -62,8 +62,8 @@
 
     if (!thumbnails.length) return;
 
-    thumbnails.forEach(function(thumb) {
-      thumb.addEventListener('click', function() {
+    thumbnails.forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
         const index = this.dataset.index;
 
         // Update active states
@@ -84,8 +84,8 @@
   function initQuantityInputs() {
     const inputs = document.querySelectorAll('.quantity-selector input, .cart-item-quantity input');
 
-    inputs.forEach(function(input) {
-      input.addEventListener('change', function() {
+    inputs.forEach(function (input) {
+      input.addEventListener('change', function () {
         if (this.value < 0) this.value = 0;
       });
     });

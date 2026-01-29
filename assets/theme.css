@@ -437,15 +437,19 @@ h3 {
 /* ============================================
    HERO
    ============================================ */
-.hero-section {
+.hero {
   position: relative;
-  min-height: 100vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  padding-top: 80px;
+  background-image: url('hero-alien.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Parallax feel */
 }
 
 .hero-content {

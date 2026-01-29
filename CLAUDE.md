@@ -109,7 +109,8 @@ eben1-Shopify-theme/
 - **No build process**: Pure CSS/JS, no bundler needed
 - **Custom font**: New Detroit (TTF loaded via CSS)
 - **Fallback font**: Orbitron (Google Fonts)
-- **Design Branch**: `design-changes` contains experimental parallax/scanline effects
+- **Design Branch**: `level-up-v1` (active)
+- **Features**: Scroll animations, Glassmorphism, Tech Specs Visualizer
 
 ## Community Pages
 
