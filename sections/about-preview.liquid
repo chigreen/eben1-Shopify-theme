@@ -1,12 +1,12 @@
-<!-- About Preview Section - EBEN1 Speed Speed -->
+<!-- About Preview Section - EBEN1 Speed -->
 <section class="about-preview">
   <div class="section-container">
     <div class="about-grid">
       <div class="about-content">
-        <h2>{{ section.settings.title | default: 'The Philosophy' }}</h2>
-        <p>{{ section.settings.description | default: 'Single speed is not a limitation. It is a decision. One gear ratio. No derailleurs. No complexity. Just you, the trail, and the purest connection to the ride. Every EBEN1 Speed is built with full carbon construction and components selected for a reason—not a catalog.' }}</p>
+        <h2>{{ section.settings.title | default: 'The Concept' }}</h2>
+        <p>{{ section.settings.description | default: 'Art is what you can get away with. We got away with one gear. No derailleurs, no complexity, no apologies. In the future, everyone will ride single speed for 15 minutes. We built the bike for those who never stop. Every EBEN1 Speed is a statement piece — carbon, deliberate, repeated until it becomes iconic.' }}</p>
         <a href="{{ section.settings.link | default: '/pages/about' }}" class="btn btn-secondary">
-          {{ section.settings.link_text | default: 'Learn More' }}
+          {{ section.settings.link_text | default: 'See the Process' }}
         </a>
       </div>
       {% if section.settings.image %}
@@ -26,19 +26,19 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "The Philosophy"
+      "default": "The Concept"
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Single speed is not a limitation. It is a decision. One gear ratio. No derailleurs. No complexity. Just you, the trail, and the purest connection to the ride."
+      "default": "Art is what you can get away with. We got away with one gear. No derailleurs, no complexity, no apologies. In the future, everyone will ride single speed for 15 minutes. We built the bike for those who never stop."
     },
     {
       "type": "text",
       "id": "link_text",
       "label": "Link text",
-      "default": "Learn More"
+      "default": "See the Process"
     },
     {
       "type": "url",

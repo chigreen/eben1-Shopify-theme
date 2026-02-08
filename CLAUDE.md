@@ -7,14 +7,16 @@ Custom Shopify 2.0 theme for **EBEN1 Speed**, a high-end single speed mountain b
 
 **Name**: EBEN1 Speed (no hyphen)
 **Tagline**: "One Gear. Zero Compromise."
-**Logo Format**: `EBEN1 <span>Speed</span>` (Speed in gold accent)
+**Logo Format**: `EBEN1 <span>Speed</span>` (Speed in hot pink accent)
 
 ### Design Aesthetic
-- Deep forest black background (#0D1210)
-- Sage green accent (#8FA89A)
-- Animated CSS "Starmap" background (depth/parallax)
+- Pop art black background (#0A0A0A)
+- Hot pink accent (#FF2D9B)
+- Banana yellow text highlights (#FFD700)
+- Electric cyan accent (#00BFFF)
+- Animated CSS "Starmap" background (multi-color pop art parallax)
 - Monolithic, sharp design (2px border radius)
-- Premium, minimal typography
+- Bold, graphic typography
 
 ## Project Structure
 
@@ -71,17 +73,18 @@ eben1-Shopify-theme/
 
 ```css
 :root {
-  /* Colors - Forest depths with sage accent */
-  --color-primary: #8FA89A;       /* Sage green */
-  --color-primary-dim: #6B7D6E;   /* Muted sage for hover */
-  --color-bg: #0D1210;            /* Deep forest */
-  --color-bg-elevated: #1A2420;
-  --color-bg-card: #141C18;
-  --color-text: #D4DDD5;
-  --color-text-muted: #5A6B5C;
-  --color-text-dim: #3D4D42;
-  --color-accent: #C8D4CA;        /* Pale mint */
-  --color-border: #2F3D33;
+  /* Colors - Pop art palette */
+  --color-primary: #FF2D9B;       /* Hot pink */
+  --color-primary-dim: #CC2480;   /* Deep pink for hover */
+  --color-bg: #0A0A0A;            /* Pop art black */
+  --color-bg-elevated: #1A1A1A;
+  --color-bg-card: #121212;
+  --color-text: #F5F5F5;
+  --color-text-muted: #FFD700;    /* Banana yellow */
+  --color-text-dim: #888888;
+  --color-accent: #00BFFF;        /* Electric cyan */
+  --color-border: rgba(255, 45, 155, 0.2);
+  --color-glow: rgba(255, 45, 155, 0.25);
 
   /* Typography */
   --font-display: 'New Detroit', 'Orbitron', sans-serif;
@@ -101,7 +104,6 @@ eben1-Shopify-theme/
   --radius-lg: 4px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  --color-glow: rgba(143, 168, 154, 0.2);
 }
 ```
 
@@ -112,7 +114,7 @@ eben1-Shopify-theme/
 - **No build process**: Pure CSS/JS, no bundler needed
 - **Custom font**: New Detroit (TTF loaded directly via CSS)
 - **Fallback font**: Orbitron (Google Fonts)
-- **Design Branch**: `level-up-v1` (active)
+- **Design Branch**: `warhol-v1` (active)
 - **Starfield**: Multi-layer CSS parallax using `html::before`, `html::after`, `body::before`
 - **Features**: Scroll reveal animations, glassmorphism panels, sci-fi cursor, tech specs visualizer
 
@@ -136,8 +138,8 @@ The theme includes MTB community features:
 1. **Brand name**: Always "EBEN1 Speed" (no hyphen between EBEN and 1)
 2. **Logo HTML**: `EBEN1 <span>Speed</span>` with span in gold
 3. **Comments**: Section files start with `<!-- Section Name - EBEN1 Speed -->`
-4. **Button classes**: `.btn-primary` (gold), `.btn-secondary` (outline)
-5. **Section labels**: Mono font, 0.625rem, uppercase, gold color
+4. **Button classes**: `.btn-primary` (hot pink), `.btn-secondary` (outline)
+5. **Section labels**: Mono font, 0.625rem, uppercase, hot pink color
 
 ## Coming Soon Page Story
 

@@ -1,14 +1,14 @@
 <!-- Hero Section - EBEN1 Speed -->
 <section class="hero-section">
   <div class="hero-content">
-    <h1 class="hero-title">{{ section.settings.title | default: 'One Gear' }}</h1>
-    <p class="hero-subtitle">{{ section.settings.subtitle | default: 'All Carbon. Zero Compromise.' }}</p>
+    <h1 class="hero-title">{{ section.settings.title | default: 'One Gear. Zero Compromise.' }}</h1>
+    <p class="hero-subtitle">{{ section.settings.subtitle | default: 'A single speed is a mass-produced object that everybody rides. We just made it art.' }}</p>
     <div class="hero-actions">
       <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn btn-primary">
-        {{ section.settings.cta_text | default: 'Explore' }}
+        {{ section.settings.cta_text | default: 'Buy the Art' }}
       </a>
       <a href="{{ section.settings.secondary_link | default: '/pages/about' }}" class="btn btn-secondary">
-        {{ section.settings.secondary_text | default: 'The Philosophy' }}
+        {{ section.settings.secondary_text | default: 'The Concept' }}
       </a>
     </div>
   </div>
@@ -27,19 +27,19 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "One Gear"
+      "default": "One Gear. Zero Compromise."
     },
     {
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "All Carbon. Zero Compromise."
+      "default": "A single speed is a mass-produced object that everybody rides. We just made it art."
     },
     {
       "type": "text",
       "id": "cta_text",
       "label": "Primary button text",
-      "default": "Explore"
+      "default": "Buy the Art"
     },
     {
       "type": "url",
@@ -50,7 +50,7 @@
       "type": "text",
       "id": "secondary_text",
       "label": "Secondary button text",
-      "default": "The Philosophy"
+      "default": "The Concept"
     },
     {
       "type": "url",
