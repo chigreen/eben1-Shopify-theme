@@ -15,7 +15,7 @@
         "id": "color_primary",
         "label": "Primary color",
         "default": "#FF2D9B",
-        "info": "Hot pink - pop art accent"
+        "info": "Hot pink - Warhol pop art"
       },
       {
         "type": "color",

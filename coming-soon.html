@@ -25,14 +25,15 @@
 
     :root {
       --color-primary: #FF2D9B;
-      --color-primary-dim: #CC2480;
+      --color-primary-dim: #E0007B;
       --color-bg: #0A0A0A;
-      --color-bg-elevated: #1A1A1A;
+      --color-bg-elevated: #FFD700;
       --color-text: #F5F5F5;
-      --color-text-muted: #FFD700;
-      --color-text-dim: #888888;
-      --color-border: rgba(255, 45, 155, 0.2);
-      --color-glow: rgba(255, 45, 155, 0.25);
+      --color-text-muted: #0A0A0A;
+      --color-text-dim: #666666;
+      --color-accent: #00BFFF;
+      --color-border: #FF2D9B;
+      --color-glow: rgba(255, 45, 155, 0.4);
 
       --font-display: 'New Detroit', 'Orbitron', sans-serif;
       --font-body: 'Inter', sans-serif;
@@ -59,144 +60,26 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ========== STARFIELD ========== */
-    .starfield {
+    /* Halftone dot pattern background - replaces starfield */
+    body::before {
+      content: '';
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 2;
-      overflow: hidden;
+      z-index: 0;
+      background-image: radial-gradient(circle, rgba(255, 45, 155, 0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
 
-    /* Distant tiny stars - faint background layer */
-    .stars-distant {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      background: transparent;
-      box-shadow:
-        50vw 10vh rgba(255, 45, 155, 0.4),
-        15vw 25vh rgba(255, 215, 0, 0.3),
-        80vw 15vh rgba(0, 191, 255, 0.35),
-        25vw 45vh rgba(255, 45, 155, 0.3),
-        60vw 35vh rgba(255, 215, 0, 0.4),
-        90vw 55vh rgba(0, 191, 255, 0.3),
-        10vw 65vh rgba(255, 45, 155, 0.35),
-        45vw 75vh rgba(255, 215, 0, 0.3),
-        75vw 85vh rgba(0, 191, 255, 0.4),
-        35vw 95vh rgba(255, 45, 155, 0.3),
-        5vw 40vh rgba(255, 215, 0, 0.35),
-        95vw 30vh rgba(0, 191, 255, 0.3);
-      animation: drift-slow 200s linear infinite;
+    ::selection {
+      background: #FFD700;
+      color: #0A0A0A;
     }
 
-    /* Medium stars with subtle glow */
-    .stars-medium {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: transparent;
-      border-radius: 50%;
-      box-shadow:
-        20vw 20vh 1px rgba(255, 45, 155, 0.7),
-        70vw 30vh 1px rgba(255, 215, 0, 0.6),
-        40vw 60vh 1px rgba(0, 191, 255, 0.7),
-        85vw 70vh 1px rgba(255, 45, 155, 0.6),
-        15vw 80vh 1px rgba(255, 215, 0, 0.7),
-        55vw 45vh 1px rgba(0, 191, 255, 0.6),
-        30vw 15vh 1px rgba(255, 45, 155, 0.7),
-        65vw 90vh 1px rgba(0, 191, 255, 0.6);
-      animation: drift-medium 150s linear infinite;
-    }
-
-    /* Bright stars with glow halo */
-    .stars-bright {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background: transparent;
-      border-radius: 50%;
-      box-shadow:
-        25vw 35vh 2px 1px rgba(255, 45, 155, 0.9),
-        75vw 50vh 2px 1px rgba(255, 215, 0, 0.85),
-        50vw 80vh 2px 1px rgba(0, 191, 255, 0.9),
-        10vw 55vh 2px 1px rgba(255, 45, 155, 0.9),
-        88vw 25vh 2px 1px rgba(0, 191, 255, 0.85);
-      animation: drift-fast 100s linear infinite;
-    }
-
-    /* Twinkling stars */
-    .stars-twinkle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background: transparent;
-      border-radius: 50%;
-      box-shadow:
-        35vw 25vh 3px 1px rgba(255, 45, 155, 1),
-        65vw 65vh 3px 1px rgba(255, 215, 0, 0.95),
-        80vw 40vh 2px 1px rgba(0, 191, 255, 1);
-      animation: twinkle 4s ease-in-out infinite;
-    }
-
-    .stars-twinkle-delayed {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: transparent;
-      border-radius: 50%;
-      box-shadow:
-        45vw 50vh 2px 1px rgba(255, 215, 0, 0.9),
-        20vw 70vh 2px 1px rgba(255, 45, 155, 0.85);
-      animation: twinkle 5s ease-in-out infinite 2s;
-    }
-
-    @keyframes drift-slow {
-      0% {
-        transform: translateY(0) translateX(0);
-      }
-
-      100% {
-        transform: translateY(-30px) translateX(10px);
-      }
-    }
-
-    @keyframes drift-medium {
-      0% {
-        transform: translateY(0) translateX(0);
-      }
-
-      100% {
-        transform: translateY(-20px) translateX(-15px);
-      }
-    }
-
-    @keyframes drift-fast {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(-15px);
-      }
-    }
-
-    @keyframes twinkle {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.3;
-      }
-    }
-
-    /* ========== HERO SECTION ========== */
+    /* ========== HERO SECTION - Hot Pink ========== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -206,35 +89,16 @@
       padding: 2rem;
       position: relative;
       text-align: center;
+      background: #FF2D9B;
     }
 
-    /* Hero background image */
+    /* Remove hero background image pseudo-elements */
     .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('assets/hero-rider.png');
-      background-size: cover;
-      background-position: center right;
-      background-repeat: no-repeat;
-      opacity: 0.35;
-      z-index: 0;
+      content: none;
     }
 
     .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        linear-gradient(to bottom, transparent 0%, transparent 70%, var(--color-bg) 100%);
-      pointer-events: none;
-      z-index: 1;
+      content: none;
     }
 
     .hero-content {
@@ -246,14 +110,15 @@
     .logo {
       font-family: var(--font-display);
       font-size: clamp(2.5rem, 10vw, 4.5rem);
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
+      color: #0A0A0A;
     }
 
     .logo span {
-      color: var(--color-primary);
+      color: #0A0A0A;
     }
 
     .tagline {
@@ -261,64 +126,64 @@
       font-size: 0.75rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--color-text-muted);
+      color: #1A1A1A;
       margin-bottom: 3rem;
+      font-weight: 700;
     }
 
     .status {
       font-family: var(--font-display);
       font-size: clamp(1rem, 3vw, 1.25rem);
-      font-weight: 400;
+      font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--color-primary);
+      color: #0A0A0A;
       margin-bottom: 2rem;
     }
 
     .intro {
       font-size: 1.125rem;
-      color: var(--color-text);
+      color: #0A0A0A;
       max-width: 550px;
       margin: 0 auto 3rem;
       line-height: 1.9;
     }
 
-    /* Email signup */
+    /* Email signup - bold Warhol style */
     .signup-form {
       display: flex;
-      gap: 1px;
-      background: var(--color-border);
-      border: 1px solid var(--color-primary);
-      border-radius: 2px;
+      gap: 0;
+      border: 3px solid #0A0A0A;
+      border-radius: 0;
       overflow: hidden;
       max-width: 420px;
       margin: 0 auto 1rem;
-      box-shadow: 0 0 30px rgba(255, 45, 155, 0.35);
+      box-shadow: 6px 6px 0 #0A0A0A;
     }
 
     .signup-form input {
       flex: 1;
       padding: 1rem 1.25rem;
-      background: rgba(26, 26, 26, 0.95);
+      background: #FFFFFF;
       border: none;
-      color: var(--color-text);
+      color: #0A0A0A;
       font-family: var(--font-body);
       font-size: 0.875rem;
       outline: none;
     }
 
     .signup-form input::placeholder {
-      color: var(--color-text-muted);
+      color: #999999;
     }
 
     .signup-form button {
       padding: 1rem 1.5rem;
-      background: var(--color-primary);
-      color: var(--color-bg);
+      background: #0A0A0A;
+      color: #F5F5F5;
       border: none;
       font-family: var(--font-display);
       font-size: 0.6875rem;
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       cursor: pointer;
@@ -326,24 +191,25 @@
     }
 
     .signup-form button:hover {
-      background: var(--color-primary-dim);
-      box-shadow: 0 0 30px var(--color-glow);
+      background: #333333;
     }
 
     .signup-note {
       font-family: var(--font-mono);
       font-size: 0.6875rem;
-      color: var(--color-text-dim);
+      color: #1A1A1A;
       letter-spacing: 0.1em;
+      font-weight: 700;
     }
 
     .signup-success {
       display: none;
       font-family: var(--font-mono);
       font-size: 0.875rem;
-      color: var(--color-primary);
+      color: #0A0A0A;
       letter-spacing: 0.05em;
       padding: 1rem;
+      font-weight: 700;
     }
 
     .scroll-hint {
@@ -354,13 +220,13 @@
       font-family: var(--font-mono);
       font-size: 0.625rem;
       letter-spacing: 0.2em;
-      color: var(--color-text-dim);
+      color: #0A0A0A;
       text-transform: uppercase;
+      font-weight: 700;
       animation: pulse 2s ease-in-out infinite;
     }
 
     @keyframes pulse {
-
       0%,
       100% {
         opacity: 0.4;
@@ -388,15 +254,16 @@
       font-size: 0.625rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--color-primary);
+      color: #FF2D9B;
       margin-bottom: 1.5rem;
       display: block;
+      font-weight: 700;
     }
 
     .section-title {
       font-family: var(--font-display);
       font-size: clamp(1.25rem, 4vw, 1.75rem);
-      font-weight: 400;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--color-text);
@@ -406,7 +273,7 @@
 
     .story-text {
       font-size: 1rem;
-      color: var(--color-text-muted);
+      color: #CCCCCC;
       line-height: 2;
       margin-bottom: 1.5rem;
     }
@@ -414,52 +281,58 @@
     .story-text em {
       color: var(--color-text);
       font-style: normal;
+      font-weight: 700;
     }
 
     .highlight {
-      color: var(--color-primary);
+      color: #FF2D9B;
+      font-weight: 700;
     }
 
+    /* Divider - solid pink bar */
     .divider {
-      width: 100px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
-      margin: 0 auto;
+      width: 100%;
+      height: 4px;
+      background: #FF2D9B;
+      margin: 0;
     }
 
-    /* Classified style */
+    /* Classified style - banana yellow */
     .classified {
-      background: var(--color-bg-elevated);
-      border: 1px solid var(--color-border);
-      border-radius: 2px;
+      background: #FFD700;
+      border: 3px solid #0A0A0A;
+      border-radius: 0;
       padding: 2rem;
       margin: 2rem 0;
       position: relative;
+      box-shadow: 6px 6px 0 #0A0A0A;
     }
 
     .classified::before {
       content: 'DECLASSIFIED';
       position: absolute;
-      top: -0.5rem;
+      top: -0.75rem;
       left: 1.5rem;
       font-family: var(--font-mono);
       font-size: 0.5rem;
       letter-spacing: 0.2em;
-      color: var(--color-primary);
-      background: var(--color-bg);
-      padding: 0 0.5rem;
+      color: #F5F5F5;
+      background: #FF2D9B;
+      padding: 0.15rem 0.5rem;
+      font-weight: 700;
     }
 
     .classified-text {
       font-family: var(--font-mono);
       font-size: 0.875rem;
-      color: var(--color-text-muted);
+      color: #0A0A0A;
       line-height: 1.8;
+      font-weight: 500;
     }
 
-    /* Quote style */
+    /* Quote style - thick pink border */
     .quote {
-      border-left: 2px solid var(--color-primary);
+      border-left: 4px solid #FF2D9B;
       padding-left: 1.5rem;
       margin: 2rem 0;
     }
@@ -470,21 +343,31 @@
       letter-spacing: 0.05em;
       color: var(--color-text);
       line-height: 1.6;
+      font-weight: 700;
     }
 
     .quote-attr {
       font-family: var(--font-mono);
       font-size: 0.6875rem;
-      color: var(--color-text-dim);
+      color: #FF2D9B;
       margin-top: 0.75rem;
       letter-spacing: 0.1em;
+      font-weight: 700;
     }
 
-    /* ========== OFFERINGS SECTION ========== */
+    /* ========== OFFERINGS SECTION - Cyan bg ========== */
     .offerings {
-      background: var(--color-bg-elevated);
-      border-top: 1px solid var(--color-border);
-      border-bottom: 1px solid var(--color-border);
+      background: #00BFFF;
+      border-top: 3px solid #0A0A0A;
+      border-bottom: 3px solid #0A0A0A;
+    }
+
+    .offerings .section-label {
+      color: #0A0A0A;
+    }
+
+    .offerings .section-title {
+      color: #0A0A0A;
     }
 
     .offerings-grid {
@@ -497,6 +380,10 @@
     .offering {
       text-align: center;
       padding: 1.5rem;
+      background: #FFFFFF;
+      border: 3px solid #0A0A0A;
+      border-radius: 0;
+      box-shadow: 4px 4px 0 #0A0A0A;
     }
 
     .offering-title {
@@ -504,40 +391,61 @@
       font-size: 0.875rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--color-text);
+      color: #0A0A0A;
       margin-bottom: 0.5rem;
+      font-weight: 700;
     }
 
     .offering-desc {
       font-family: var(--font-mono);
       font-size: 0.6875rem;
-      color: var(--color-text-dim);
+      color: #333333;
       letter-spacing: 0.05em;
     }
 
-    /* ========== FINAL CTA ========== */
+    /* ========== FINAL CTA - banana yellow bg ========== */
     .final-cta {
       text-align: center;
       padding: 8rem 2rem;
+      background: #FFD700;
+    }
+
+    .final-cta .section-label {
+      color: #FF2D9B;
     }
 
     .final-cta .section-title {
+      color: #0A0A0A;
       margin-bottom: 1rem;
     }
 
     .final-tagline {
       font-family: var(--font-mono);
       font-size: 0.875rem;
-      color: var(--color-text-muted);
+      color: #0A0A0A;
       letter-spacing: 0.1em;
       margin-bottom: 3rem;
+      font-weight: 700;
     }
 
-    /* ========== FOOTER ========== */
+    .final-cta .signup-form {
+      border-color: #0A0A0A;
+    }
+
+    .final-cta .signup-note {
+      color: #333333;
+    }
+
+    .final-cta .signup-success {
+      color: #FF2D9B;
+    }
+
+    /* ========== FOOTER - hot pink ========== */
     .footer {
       text-align: center;
       padding: 2rem;
-      border-top: 1px solid var(--color-border);
+      border-top: 3px solid #0A0A0A;
+      background: #FF2D9B;
     }
 
     .social-links {
@@ -551,20 +459,22 @@
       font-family: var(--font-mono);
       font-size: 0.6875rem;
       letter-spacing: 0.15em;
-      color: var(--color-text-dim);
+      color: #0A0A0A;
       text-decoration: none;
+      font-weight: 700;
       transition: color 0.3s ease;
     }
 
     .social-links a:hover {
-      color: var(--color-primary);
+      color: #FFFFFF;
     }
 
     .footer-note {
       font-family: var(--font-mono);
       font-size: 0.5625rem;
-      color: var(--color-text-dim);
+      color: #0A0A0A;
       letter-spacing: 0.1em;
+      font-weight: 700;
     }
 
     /* Responsive */
@@ -589,15 +499,6 @@
 </head>
 
 <body>
-
-  <!-- Starfield layers -->
-  <div class="starfield">
-    <div class="stars-distant"></div>
-    <div class="stars-medium"></div>
-    <div class="stars-bright"></div>
-    <div class="stars-twinkle"></div>
-    <div class="stars-twinkle-delayed"></div>
-  </div>
 
   <!-- ========== HERO ========== -->
   <section class="hero">

@@ -1,14 +1,14 @@
 <!-- Hero Section - EBEN1 Speed -->
-<section class="hero-section">
+<section class="hero-section color-block-pink">
   <div class="hero-content">
-    <h1 class="hero-title">{{ section.settings.title | default: 'One Gear. Zero Compromise.' }}</h1>
+    <h1 class="hero-title">{{ section.settings.title | default: 'ONE GEAR. EVERYBODY WANTS ONE.' }}</h1>
     <p class="hero-subtitle">{{ section.settings.subtitle | default: 'A single speed is a mass-produced object that everybody rides. We just made it art.' }}</p>
     <div class="hero-actions">
       <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn btn-primary">
         {{ section.settings.cta_text | default: 'Buy the Art' }}
       </a>
       <a href="{{ section.settings.secondary_link | default: '/pages/about' }}" class="btn btn-secondary">
-        {{ section.settings.secondary_text | default: 'The Concept' }}
+        {{ section.settings.secondary_text | default: 'The Factory' }}
       </a>
     </div>
   </div>
@@ -27,7 +27,7 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "One Gear. Zero Compromise."
+      "default": "ONE GEAR. EVERYBODY WANTS ONE."
     },
     {
       "type": "text",
@@ -50,7 +50,7 @@
       "type": "text",
       "id": "secondary_text",
       "label": "Secondary button text",
-      "default": "The Concept"
+      "default": "The Factory"
     },
     {
       "type": "url",

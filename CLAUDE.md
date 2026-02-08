@@ -1,7 +1,7 @@
 # EBEN1 Speed - Shopify Theme
 
 ## Overview
-Custom Shopify 2.0 theme for **EBEN1 Speed**, a high-end single speed mountain bike outfitter. The brand features a subtle extraterrestrial theme inspired by Skinny Bob/Roswell lore—interesting but not cheesy.
+Custom Shopify 2.0 theme for **EBEN1 Speed**, a high-end single speed mountain bike outfitter. The brand features a Warhol-inspired pop art visual identity with bold color blocks, halftone patterns, and hard graphic edges.
 
 ## Brand Identity
 
@@ -11,12 +11,16 @@ Custom Shopify 2.0 theme for **EBEN1 Speed**, a high-end single speed mountain b
 
 ### Design Aesthetic
 - Pop art black background (#0A0A0A)
-- Hot pink accent (#FF2D9B)
-- Banana yellow text highlights (#FFD700)
+- Hot pink primary (#FF2D9B) - Warhol's Marilyn
+- Banana yellow sections (#FFD700) - Warhol's Banana
 - Electric cyan accent (#00BFFF)
-- Animated CSS "Starmap" background (multi-color pop art parallax)
-- Monolithic, sharp design (2px border radius)
-- Bold, graphic typography
+- Color-blocked sections (each section a different bold color)
+- Halftone dot pattern overlay (CSS radial-gradient)
+- Zero border radius - hard edges
+- Thick 3px colored borders
+- Hard offset shadows (no blur)
+- Bold, graphic, commercial typography
+- NO starfield - replaced with halftone dots
 
 ## Project Structure
 
@@ -73,18 +77,21 @@ eben1-Shopify-theme/
 
 ```css
 :root {
-  /* Colors - Pop art palette */
+  /* Colors - Warhol pop art palette */
   --color-primary: #FF2D9B;       /* Hot pink */
-  --color-primary-dim: #CC2480;   /* Deep pink for hover */
+  --color-primary-dim: #E0007B;   /* Deep magenta */
   --color-bg: #0A0A0A;            /* Pop art black */
-  --color-bg-elevated: #1A1A1A;
-  --color-bg-card: #121212;
+  --color-bg-elevated: #FFD700;   /* Banana yellow */
+  --color-bg-card: #0A0A0A;
   --color-text: #F5F5F5;
-  --color-text-muted: #FFD700;    /* Banana yellow */
-  --color-text-dim: #888888;
+  --color-text-muted: #0A0A0A;   /* Black on colored bgs */
+  --color-text-dim: #666666;
   --color-accent: #00BFFF;        /* Electric cyan */
-  --color-border: rgba(255, 45, 155, 0.2);
-  --color-glow: rgba(255, 45, 155, 0.25);
+  --color-border: #FF2D9B;        /* Bold pink borders */
+  --color-pop-yellow: #FFD700;
+  --color-pop-cyan: #00BFFF;
+  --color-pop-orange: #FF6B35;
+  --color-pop-lime: #7FFF00;
 
   /* Typography */
   --font-display: 'New Detroit', 'Orbitron', sans-serif;
@@ -100,10 +107,8 @@ eben1-Shopify-theme/
   --space-xl: 8rem;
 
   /* Design tokens */
-  --radius: 2px;
-  --radius-lg: 4px;
+  --radius: 0;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 ```
 
@@ -115,8 +120,7 @@ eben1-Shopify-theme/
 - **Custom font**: New Detroit (TTF loaded directly via CSS)
 - **Fallback font**: Orbitron (Google Fonts)
 - **Design Branch**: `warhol-v1` (active)
-- **Starfield**: Multi-layer CSS parallax using `html::before`, `html::after`, `body::before`
-- **Features**: Scroll reveal animations, glassmorphism panels, sci-fi cursor, tech specs visualizer
+- **Features**: Color-blocked sections, halftone overlay, hard offset shadows, pop art typography
 
 ## Community Pages
 
@@ -136,10 +140,11 @@ The theme includes MTB community features:
 ## Conventions
 
 1. **Brand name**: Always "EBEN1 Speed" (no hyphen between EBEN and 1)
-2. **Logo HTML**: `EBEN1 <span>Speed</span>` with span in gold
+2. **Logo HTML**: `EBEN1 <span>Speed</span>` with span in hot pink
 3. **Comments**: Section files start with `<!-- Section Name - EBEN1 Speed -->`
 4. **Button classes**: `.btn-primary` (hot pink), `.btn-secondary` (outline)
-5. **Section labels**: Mono font, 0.625rem, uppercase, hot pink color
+5. **Section labels**: Mono font, bold, uppercase, hot pink color
+6. **Design language**: Color blocks, thick borders, zero radius, no gradients, no blur
 
 ## Coming Soon Page Story
 

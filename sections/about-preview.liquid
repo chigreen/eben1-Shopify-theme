@@ -3,10 +3,10 @@
   <div class="section-container">
     <div class="about-grid">
       <div class="about-content">
-        <h2>{{ section.settings.title | default: 'The Concept' }}</h2>
-        <p>{{ section.settings.description | default: 'Art is what you can get away with. We got away with one gear. No derailleurs, no complexity, no apologies. In the future, everyone will ride single speed for 15 minutes. We built the bike for those who never stop. Every EBEN1 Speed is a statement piece — carbon, deliberate, repeated until it becomes iconic.' }}</p>
+        <h2>{{ section.settings.title | default: 'The Factory' }}</h2>
+        <p>{{ section.settings.description | default: 'Being good in business is the most fascinating kind of art. We made one bike. One gear. Then we made it again. And again. Repetition makes reputation. A single speed is pop art — ordinary made extraordinary. No derailleurs. No complexity. No apologies. Just the same perfect thing, over and over, until everybody wants one.' }}</p>
         <a href="{{ section.settings.link | default: '/pages/about' }}" class="btn btn-secondary">
-          {{ section.settings.link_text | default: 'See the Process' }}
+          {{ section.settings.link_text | default: 'Enter the Factory' }}
         </a>
       </div>
       {% if section.settings.image %}
@@ -26,19 +26,19 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "The Concept"
+      "default": "The Factory"
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Art is what you can get away with. We got away with one gear. No derailleurs, no complexity, no apologies. In the future, everyone will ride single speed for 15 minutes. We built the bike for those who never stop."
+      "default": "Being good in business is the most fascinating kind of art. We made one bike. One gear. Then we made it again. And again. Repetition makes reputation. A single speed is pop art — ordinary made extraordinary."
     },
     {
       "type": "text",
       "id": "link_text",
       "label": "Link text",
-      "default": "See the Process"
+      "default": "Enter the Factory"
     },
     {
       "type": "url",
