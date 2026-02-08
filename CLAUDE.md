@@ -56,7 +56,7 @@ eben1-Shopify-theme/
 │   ├── team-grid.liquid       # Team profiles
 │   └── rider-resources.liquid # Guides/tools
 ├── assets/
-│   ├── theme.css              # Main stylesheet (~1350 lines)
+│   ├── theme.css              # Main stylesheet (~1540 lines)
 │   ├── theme.js               # Vanilla JS interactions
 │   ├── new-detroit.ttf        # Custom brand font
 │   └── [images]               # hero-1, hero-2, build-apex, product placeholders
@@ -98,7 +98,10 @@ eben1-Shopify-theme/
 
   /* Design tokens */
   --radius: 2px;
+  --radius-lg: 4px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --color-glow: rgba(143, 168, 154, 0.2);
 }
 ```
 
@@ -107,10 +110,11 @@ eben1-Shopify-theme/
 - **Shopify 2.0**: JSON templates with section architecture
 - **Liquid**: Shopify templating language
 - **No build process**: Pure CSS/JS, no bundler needed
-- **Custom font**: New Detroit (TTF loaded via CSS)
+- **Custom font**: New Detroit (TTF loaded directly via CSS)
 - **Fallback font**: Orbitron (Google Fonts)
 - **Design Branch**: `level-up-v1` (active)
-- **Features**: Scroll animations, Glassmorphism, Tech Specs Visualizer
+- **Starfield**: Multi-layer CSS parallax using `html::before`, `html::after`, `body::before`
+- **Features**: Scroll reveal animations, glassmorphism panels, sci-fi cursor, tech specs visualizer
 
 ## Community Pages
 
