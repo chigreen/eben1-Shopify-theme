@@ -10,10 +10,15 @@
   <style>
     /* ============================================
        EBEN1 SPEED - Preview Styles
-       ============================================
-       Using Orbitron as fallback for New Detroit
-       (futuristic, geometric display font)
        ============================================ */
+
+    @font-face {
+      font-family: 'New Detroit';
+      src: url('assets/new-detroit.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
 
     :root {
       --color-primary: #8FA89A;
@@ -29,8 +34,8 @@
       --color-border: #2F3D33;
       --color-glow: rgba(143, 168, 154, 0.2);
 
-      --font-display: 'Orbitron', sans-serif;  /* New Detroit fallback */
-      --font-heading: 'Orbitron', sans-serif;
+      --font-display: 'New Detroit', 'Orbitron', sans-serif;
+      --font-heading: 'New Detroit', 'Orbitron', sans-serif;
       --font-body: 'Inter', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
