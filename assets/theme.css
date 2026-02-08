@@ -2,7 +2,7 @@
    EBEN1 SPEED - Main Stylesheet
    ============================================
    High-end single speed MTB. Carbon. Curated.
-   Subtle extraterrestrial aesthetic.
+   Industrial precision aesthetic.
    ============================================ */
 
 /* ----- Custom Font: New Detroit ----- */
@@ -17,23 +17,25 @@
 
 /* ----- CSS Variables ----- */
 :root {
-  /* Colors - Forest depths with sage accent */
-  --color-primary: #8FA89A;
-  /* Sage green */
-  --color-primary-dim: #6B7D6E;
-  /* Muted sage for hover */
-  --color-bg: #0D1210;
-  /* Deep forest */
-  --color-bg-elevated: #1A2420;
+  /* Colors - Industrial monochrome */
+  --color-primary: #E8E8E8;
+  /* Industrial silver */
+  --color-primary-dim: #999999;
+  /* Muted silver for hover */
+  --color-bg: #050505;
+  /* Industrial black */
+  --color-bg-elevated: #111111;
   /* Slightly lifted surfaces */
-  --color-bg-card: #141C18;
+  --color-bg-card: #0A0A0A;
   /* Card backgrounds */
-  --color-text: #D4DDD5;
-  --color-text-muted: #5A6B5C;
-  --color-text-dim: #3D4D42;
-  --color-accent: #C8D4CA;
-  /* Pale mint */
-  --color-border: #2F3D33;
+  --color-text: #F0F0F0;
+  --color-text-muted: #888888;
+  --color-text-dim: #555555;
+  --color-accent: #CCCCCC;
+  /* Light silver */
+  --color-border: #222222;
+  --color-glow: rgba(232, 232, 232, 0.15);
+  --color-secondary: #111111;
 
   /* Typography - New Detroit for Display/Headings only */
   --font-display: 'New Detroit', 'Orbitron', sans-serif;
@@ -117,9 +119,9 @@ html::after {
   height: 2px;
   border-radius: 50%;
   box-shadow:
-    15vw 25vh 0 rgba(143, 168, 154, 0.2),
+    15vw 25vh 0 rgba(255, 255, 255, 0.2),
     45vw 65vh 0 rgba(255, 255, 255, 0.1),
-    85vw 15vh 0 rgba(143, 168, 154, 0.2),
+    85vw 15vh 0 rgba(255, 255, 255, 0.2),
     65vw 85vh 0 rgba(255, 255, 255, 0.1);
   animation: starDrift 120s linear infinite;
 }
@@ -131,7 +133,7 @@ body::before {
   border-radius: 50%;
   box-shadow:
     25vw 35vh 2px rgba(255, 255, 255, 0.6),
-    75vw 55vh 2px rgba(143, 168, 154, 0.5),
+    75vw 55vh 2px rgba(255, 255, 255, 0.5),
     55vw 15vh 2px rgba(255, 255, 255, 0.5);
   animation: starPulse 6s ease-in-out infinite;
 }
@@ -305,7 +307,7 @@ h3 {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(13, 18, 16, 0.9);
+  background: rgba(5, 5, 5, 0.9);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -1387,8 +1389,8 @@ h3 {
     85vw 70vh 1px rgba(255, 255, 255, 0.6),
     15vw 80vh 1px rgba(255, 255, 255, 0.7),
     55vw 45vh 1px rgba(255, 255, 255, 0.6),
-    30vw 15vh 1px rgba(143, 168, 154, 0.7),
-    65vw 90vh 1px rgba(143, 168, 154, 0.6);
+    30vw 15vh 1px rgba(255, 255, 255, 0.7),
+    65vw 90vh 1px rgba(255, 255, 255, 0.6);
   animation: drift-medium 150s linear infinite;
 }
 
@@ -1403,8 +1405,8 @@ h3 {
     25vw 35vh 2px 1px rgba(255, 255, 255, 0.9),
     75vw 50vh 2px 1px rgba(255, 255, 255, 0.85),
     50vw 80vh 2px 1px rgba(255, 255, 255, 0.9),
-    10vw 55vh 2px 1px rgba(143, 168, 154, 0.9),
-    88vw 25vh 2px 1px rgba(143, 168, 154, 0.85);
+    10vw 55vh 2px 1px rgba(255, 255, 255, 0.9),
+    88vw 25vh 2px 1px rgba(255, 255, 255, 0.85);
   animation: drift-fast 100s linear infinite;
 }
 
@@ -1418,7 +1420,7 @@ h3 {
   box-shadow:
     35vw 25vh 3px 1px rgba(255, 255, 255, 1),
     65vw 65vh 3px 1px rgba(255, 255, 255, 0.95),
-    80vw 40vh 2px 1px rgba(143, 168, 154, 1);
+    80vw 40vh 2px 1px rgba(255, 255, 255, 1);
   animation: twinkle 4s ease-in-out infinite;
 }
 
@@ -1529,11 +1531,11 @@ button,
 }
 
 .glass-panel {
-  background: rgba(13, 18, 16, 0.6) !important;
-  /* Darker base */
+  background: rgba(5, 5, 5, 0.6) !important;
+  /* Industrial dark base */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(143, 168, 154, 0.3) !important;
+  border: 1px solid rgba(232, 232, 232, 0.3) !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   padding: 2rem;
   border-radius: var(--radius);

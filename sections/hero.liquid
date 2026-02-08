@@ -2,13 +2,13 @@
 <section class="hero-section">
   <div class="hero-content">
     <h1 class="hero-title">{{ section.settings.title | default: 'One Gear' }}</h1>
-    <p class="hero-subtitle">{{ section.settings.subtitle | default: 'All Carbon. Zero Compromise.' }}</p>
+    <p class="hero-subtitle">{{ section.settings.subtitle | default: 'Engineered for Singular Purpose. Zero Compromise.' }}</p>
     <div class="hero-actions">
       <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn btn-primary">
-        {{ section.settings.cta_text | default: 'Explore' }}
+        {{ section.settings.cta_text | default: 'View Builds' }}
       </a>
       <a href="{{ section.settings.secondary_link | default: '/pages/about' }}" class="btn btn-secondary">
-        {{ section.settings.secondary_text | default: 'The Philosophy' }}
+        {{ section.settings.secondary_text | default: 'The Blueprint' }}
       </a>
     </div>
   </div>
@@ -33,13 +33,13 @@
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "All Carbon. Zero Compromise."
+      "default": "Engineered for Singular Purpose. Zero Compromise."
     },
     {
       "type": "text",
       "id": "cta_text",
       "label": "Primary button text",
-      "default": "Explore"
+      "default": "View Builds"
     },
     {
       "type": "url",
@@ -50,7 +50,7 @@
       "type": "text",
       "id": "secondary_text",
       "label": "Secondary button text",
-      "default": "The Philosophy"
+      "default": "The Blueprint"
     },
     {
       "type": "url",

@@ -14,34 +14,34 @@
         "type": "color",
         "id": "color_primary",
         "label": "Primary color",
-        "default": "#8FA89A",
-        "info": "Sage green accent"
+        "default": "#E8E8E8",
+        "info": "Industrial silver accent"
       },
       {
         "type": "color",
         "id": "color_secondary",
         "label": "Secondary color",
-        "default": "#1A2420"
+        "default": "#111111"
       },
       {
         "type": "color",
         "id": "color_background",
         "label": "Background color",
-        "default": "#0D1210",
-        "info": "Deep forest black"
+        "default": "#050505",
+        "info": "Industrial black"
       },
       {
         "type": "color",
         "id": "color_text",
         "label": "Text color",
-        "default": "#F0F4F1"
+        "default": "#F0F0F0"
       },
       {
         "type": "color",
         "id": "color_accent",
         "label": "Accent color",
-        "default": "#C8D4CA",
-        "info": "Pale mint"
+        "default": "#CCCCCC",
+        "info": "Light silver"
       }
     ]
   },
