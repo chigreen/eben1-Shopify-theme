@@ -327,7 +327,7 @@ h3 {
 }
 
 .header-logo .logo-icon {
-  height: 140px;
+  height: 70px;
   width: auto;
 }
 
@@ -1127,7 +1127,7 @@ h3 {
 
 
 .footer-logo-icon {
-  height: 120px;
+  height: 60px;
   width: auto;
   margin-bottom: var(--space-sm);
   opacity: 0.7;
