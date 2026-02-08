@@ -320,6 +320,17 @@ h3 {
   gap: var(--space-lg);
 }
 
+.header-logo .logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-logo .logo-icon {
+  height: 32px;
+  width: auto;
+}
+
 .header-logo .logo-text {
   font-family: var(--font-display);
   font-size: 1.25rem;
@@ -453,6 +464,14 @@ h3 {
   z-index: 2;
   max-width: 900px;
   padding: var(--space-md);
+}
+
+.hero-logo {
+  height: 120px;
+  width: auto;
+  margin: 0 auto var(--space-md);
+  display: block;
+  filter: drop-shadow(0 0 40px var(--color-glow));
 }
 
 .hero-title {
@@ -1106,6 +1125,13 @@ h3 {
 }
 
 
+
+.footer-logo-icon {
+  height: 24px;
+  width: auto;
+  margin-bottom: var(--space-xs);
+  opacity: 0.7;
+}
 
 .footer-logo {
   font-family: var(--font-heading);

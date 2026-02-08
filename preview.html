@@ -144,6 +144,32 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      height: 32px;
+      width: auto;
+      filter: brightness(0.9);
+    }
+
+    /* Hero brand mark */
+    .hero-logo {
+      height: 120px;
+      width: auto;
+      margin: 0 auto var(--space-md);
+      display: block;
+      filter: drop-shadow(0 0 30px rgba(143, 168, 154, 0.3));
+    }
+
+    /* Footer brand mark */
+    .footer-logo-icon {
+      height: 24px;
+      width: auto;
+      margin-bottom: var(--space-xs);
+      opacity: 0.7;
     }
 
     .logo span {
@@ -583,7 +609,10 @@
   <!-- Header -->
   <header class="site-header">
     <div class="header-container">
-      <div class="logo">EBEN1 <span>Speed</span></div>
+      <div class="logo">
+          <img src="assets/eben1-logo.png" alt="EBEN1 Speed" class="logo-icon">
+          EBEN1 <span>Speed</span>
+        </div>
       <nav class="nav">
         <a href="#">Builds</a>
         <a href="#">Philosophy</a>
@@ -596,6 +625,7 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
+      <img src="assets/eben1-logo.png" alt="" class="hero-logo">
       <h1>One Gear</h1>
       <p class="hero-subtitle">All Carbon. Zero Compromise.</p>
       <div class="hero-actions">
@@ -683,7 +713,8 @@
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-main">
-        <div>
+        <div class="footer-brand">
+          <img src="assets/eben1-logo.png" alt="EBEN1 Speed" class="footer-logo-icon">
           <div class="footer-logo">EBEN1 Speed</div>
           <p class="footer-tagline">One Gear. Zero Compromise.</p>
         </div>
